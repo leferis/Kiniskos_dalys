@@ -10,6 +10,9 @@ import { LoginComponent } from './login/login.component';
 import { GetUserService } from './Services/Users/get-user.service';
 import { HttpModule } from '@angular/http';
 import { AccountComponent } from './account/account.component';
+import { UserComponent } from './user/user.component';
+import { WorkerComponent } from './worker/worker.component';
+import { ReviewComponent } from './review/review.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { AccountComponent } from './account/account.component';
     AppComponent,
     MainComponent,
     LoginComponent,
-    AccountComponent
+    AccountComponent,
+    UserComponent,
+    WorkerComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
