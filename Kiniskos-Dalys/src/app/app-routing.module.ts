@@ -7,13 +7,15 @@ import { AccountComponent } from './account/account.component';
 import { UserComponent } from './user/user.component';
 import { WorkerComponent } from './worker/worker.component';
 import { ReviewComponent } from './review/review.component';
+import { WorkerCreateComponent } from './worker-create/worker-create.component';
 const routes: Routes =[
 {path:'', component: MainComponent},
 {path:'Login',component: LoginComponent},
 {path:'Account',component:AccountComponent},
 {path:'User',component:UserComponent},
 {path:'Worker',component:WorkerComponent},
-{path:'Review',component:ReviewComponent}
+{path:'Review',component:ReviewComponent},
+{path:'admin/worker',component:WorkerCreateComponent}
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
