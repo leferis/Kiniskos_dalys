@@ -1,4 +1,7 @@
 export class user{
-    name: string;
-    password:string;
+    Name: string;
+    Password:string;
+    Birthday:string;
+    Position:string;
+    Tabel:string;
 }

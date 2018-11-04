@@ -1,6 +1,13 @@
 {
-  "Users": {
-      "Name": "TEST",
-      "Password": "333"
-  }
+	"Users": [{
+			"Name": "TEST",
+			"Password": "333",
+			"Tabel":"23320"
+		},
+		{
+			"Name": "TESTas",
+			"Password": "333",
+			"Tabel":"23322"
+		}
+	]
 }

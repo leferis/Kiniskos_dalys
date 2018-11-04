@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule }    from '@angular/common/http';
 
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -20,6 +20,10 @@ import { RepairSearchComponent } from './repair-search/repair-search.component';
 import { VinDecodeComponent } from './vin-decode/vin-decode.component';
 
 
+import { WorkerCreateComponent } from './worker-create/worker-create.component';
+import { WorkerService } from './Services/Worker/worker.service';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,15 +37,18 @@ import { VinDecodeComponent } from './vin-decode/vin-decode.component';
     RepairListComponent,
     RepairComponent,
     RepairSearchComponent,
-    VinDecodeComponent
+    VinDecodeComponent,
+    WorkerCreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ToastModule.forRoot(),
-    HttpModule
+    HttpModule,
+    HttpClientModule,
+    NgbModule,
+    AngularFontAwesomeModule
   ],
-  providers: [GetUserService],
+  providers: [GetUserService,WorkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

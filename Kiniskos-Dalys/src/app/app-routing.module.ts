@@ -13,6 +13,7 @@ import {RepairComponent} from './repair/repair.component';
 import { RepairSearchComponent } from './repair-search/repair-search.component';
 import { VinDecodeComponent } from './vin-decode/vin-decode.component';
 
+import { WorkerCreateComponent } from './worker-create/worker-create.component';
 const routes: Routes =[
 {path:'', component: MainComponent},
 {path:'Login',component: LoginComponent},
@@ -24,7 +25,8 @@ const routes: Routes =[
 {path:'MyRepairs', component:RepairListComponent},
 {path:'Repair/:id', component:RepairComponent},
 {path:'RepairSearch', component:RepairSearchComponent},
-{path: 'DecodeVIN', component:VinDecodeComponent}
+{path: 'DecodeVIN', component:VinDecodeComponent},
+{path:'admin/worker',component:WorkerCreateComponent}
 ]
 @NgModule({
   imports: [
