@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
 
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -16,8 +15,8 @@ import { WorkerComponent } from './worker/worker.component';
 import { ReviewComponent } from './review/review.component';
 import { WorkerCreateComponent } from './worker-create/worker-create.component';
 import { WorkerService } from './Services/Worker/worker.service';
-
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +31,10 @@ import { WorkerService } from './Services/Worker/worker.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ToastModule.forRoot(),
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    AngularFontAwesomeModule
   ],
   providers: [GetUserService,WorkerService],
   bootstrap: [AppComponent]
