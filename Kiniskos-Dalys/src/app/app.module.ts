@@ -13,6 +13,11 @@ import { AccountComponent } from './account/account.component';
 import { UserComponent } from './user/user.component';
 import { WorkerComponent } from './worker/worker.component';
 import { ReviewComponent } from './review/review.component';
+import { RepairSubSysComponent } from './repair-sub-sys/repair-sub-sys.component';
+import { RepairListComponent } from './repair-list/repair-list.component';
+import { RepairComponent } from './repair/repair.component';
+import { RepairSearchComponent } from './repair-search/repair-search.component';
+import { VinDecodeComponent } from './vin-decode/vin-decode.component';
 
 
 @NgModule({
@@ -23,7 +28,12 @@ import { ReviewComponent } from './review/review.component';
     AccountComponent,
     UserComponent,
     WorkerComponent,
-    ReviewComponent
+    ReviewComponent,
+    RepairSubSysComponent,
+    RepairListComponent,
+    RepairComponent,
+    RepairSearchComponent,
+    VinDecodeComponent
   ],
   imports: [
     BrowserModule,
