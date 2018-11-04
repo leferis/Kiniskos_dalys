@@ -3,7 +3,7 @@ import { GetUserService } from '../Services/Users/get-user.service';
 import { WorkerService } from '../Services/Worker/worker.service';
 import { user } from '../userModel';
 import { Observable } from 'rxjs';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-worker-create',
   templateUrl: './worker-create.component.html',
@@ -11,8 +11,9 @@ import { Observable } from 'rxjs';
 })
 export class WorkerCreateComponent implements OnInit {
 
-  constructor(private user: GetUserService) { }
+  constructor(private user: GetUserService,private modalService: NgbModal) { }
   data: user[];
+  datauser:user[];
   ads:any;
   ngOnInit() {
    
@@ -23,4 +24,8 @@ export class WorkerCreateComponent implements OnInit {
   getData():void{
     console.log(this.data);
   }
+  open(modal, employeeIndex) {
+    this.modalService.open(modal);
+    this.datauser = this.data.map(arr => arr[employeeIndex]);
+}
 }
