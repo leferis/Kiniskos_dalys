@@ -24,6 +24,11 @@ import { WorkerCreateComponent } from './worker-create/worker-create.component';
 import { WorkerService } from './Services/Worker/worker.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TempCarOrderComponent } from './temp-car-order/temp-car-order.component';
+import { TempCarReturnComponent } from './temp-car-return/temp-car-return.component';
+import { TempCarAddComponent } from './temp-car-add/temp-car-add.component';
+import { TempCarFixDelComponent } from './temp-car-fix-del/temp-car-fix-del.component';
+import { TempCarSubSysComponent } from './temp-car-sub-sys/temp-car-sub-sys.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +43,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     RepairComponent,
     RepairSearchComponent,
     VinDecodeComponent,
-    WorkerCreateComponent
+    WorkerCreateComponent,
+    TempCarOrderComponent,
+    TempCarReturnComponent,
+    TempCarAddComponent,
+    TempCarFixDelComponent,
+    TempCarSubSysComponent
   ],
   imports: [
     BrowserModule,
