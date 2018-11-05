@@ -1,0 +1,56 @@
+<div name="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Užsakymo nr.</th>
+                    <th>Data</th>
+                    <th>Būsėna</th>
+                    <th>Suma</th>
+                    <th>Detaliau</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- filtruojam be pipe -->
+                <tr *ngFor="let i of data">
+                    <th>{{i.Tabel}}</th>
+                    <th>{{i.Name}}</th>
+                    <th>
+                        <span class="btn btn-danger">
+                            <i class="fa fa-minus-square"></i>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="btn btn-secondary" (click)="open(modal, ind)">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </span>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+<ng-template #modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Užsakymas</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+      <thead>
+        <th>Prekė</th>
+        <th>kiekis</th>
+        <th>Kaina</th>
+      </thead>
+        <div *ngFor="let item of items" id="User">
+          
+     </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c()">Uždaryti</button>
+    </div>
+</ng-template>

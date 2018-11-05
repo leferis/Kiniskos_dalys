@@ -14,9 +14,12 @@ import { UserComponent } from './user/user.component';
 import { WorkerComponent } from './worker/worker.component';
 import { ReviewComponent } from './review/review.component';
 import { WorkerCreateComponent } from './worker-create/worker-create.component';
+import { OrderListComponent } from './order-list/order-list.component';
 import { WorkerService } from './Services/Worker/worker.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { WokerReviewComponent } from './woker-review/woker-review.component';
+import { DetaleComponent } from './detale/detale.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     UserComponent,
     WorkerComponent,
     ReviewComponent,
-    WorkerCreateComponent
+    WorkerCreateComponent,
+    OrderListComponent,
+    WokerReviewComponent,
+    DetaleComponent
   ],
   imports: [
     BrowserModule,
