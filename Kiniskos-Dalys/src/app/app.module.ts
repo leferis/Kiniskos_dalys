@@ -24,6 +24,9 @@ import { WorkerCreateComponent } from './worker-create/worker-create.component';
 import { WorkerService } from './Services/Worker/worker.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ShopComponent } from './shop/shop.component';
+import { ShopListComponent } from './shop-list/shop-list.component';
+import { OrdersComponent } from './orders/orders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +41,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     RepairComponent,
     RepairSearchComponent,
     VinDecodeComponent,
-    WorkerCreateComponent
+    WorkerCreateComponent,
+    ShopComponent,
+    ShopListComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
