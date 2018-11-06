@@ -14,9 +14,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-  this.user.getUser().subscribe( (Response:user[])=> {
-    this.users=Response;
-  })
   }
 
 }

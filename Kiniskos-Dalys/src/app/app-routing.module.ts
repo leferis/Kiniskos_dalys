@@ -9,6 +9,8 @@ import { WorkerComponent } from './worker/worker.component';
 import { ReviewComponent } from './review/review.component';
 import { WorkerCreateComponent } from './worker-create/worker-create.component';
 import { OrderListComponent } from './order-list/order-list.component';
+import { WokerReviewComponent } from './woker-review/woker-review.component';
+import { DetaleComponent } from './detale/detale.component';
 const routes: Routes =[
 {path:'', component: MainComponent},
 {path:'Login',component: LoginComponent},
@@ -17,7 +19,9 @@ const routes: Routes =[
 {path:'Worker',component:WorkerComponent},
 {path:'Review',component:ReviewComponent},
 {path:'admin/worker',component:WorkerCreateComponent},
-{path:'user/list',component:OrderListComponent}
+{path:'user/list',component:OrderListComponent},
+{path:'user/worker',component:WokerReviewComponent},
+{path:'worker/part',component:DetaleComponent}
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

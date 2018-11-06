@@ -20,6 +20,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { WokerReviewComponent } from './woker-review/woker-review.component';
 import { DetaleComponent } from './detale/detale.component';
+import { MovebarComponent } from './movebar/movebar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { DetaleComponent } from './detale/detale.component';
     WorkerCreateComponent,
     OrderListComponent,
     WokerReviewComponent,
-    DetaleComponent
+    DetaleComponent,
+    MovebarComponent
   ],
   imports: [
     BrowserModule,
