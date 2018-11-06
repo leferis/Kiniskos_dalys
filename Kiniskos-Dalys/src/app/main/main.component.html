@@ -1,6 +1,12 @@
 
-<button id="Remontas" [routerLink]="['../MyRepairs']">Automobilių remonto posistemė</button>
-<button id="Dalys" [routerLink]="['../Shop']">Automobilio dalių posistemė</button>
+<div id="body">
+<div class="row justify-content-md-center" id="meniu">
+<span class="btn btn-primary" id="Remontas" [routerLink]="['../MyRepairs']">Automobilių remonto posistemė</span>
+<span class="btn btn-secondary" id="Dalys" [routerLink]="['../Shop']">Automobilio dalių posistemė</span>
+</div>
+<div class="row justify-content-md-center">
 <br>
-<button id="Pakaitiniai" [routerLink]="['../TempCarOrder']">Pakaitinių automobilių posistemė</button>
-<button id="Vartotojai" [routerLink]="['../Login']">Vartotojų Valdymas</button>
+<span id="Pakaitiniai" class="btn btn-danger" [routerLink]="['../TempCarOrder']">Pakaitinių automobilių posistemė</span>
+<span id="Vartotojai" class="btn btn-info" [routerLink]="['../Login']">Vartotojų Valdymas</span>
+</div>
+</div>
