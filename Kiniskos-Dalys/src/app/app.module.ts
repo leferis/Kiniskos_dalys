@@ -48,7 +48,7 @@ import { TempCarSubSysComponent } from './temp-car-sub-sys/temp-car-sub-sys.comp
     TempCarReturnComponent,
     TempCarAddComponent,
     TempCarFixDelComponent,
-    TempCarSubSysComponent
+    TempCarSubSysComponent,
   ],
   imports: [
     BrowserModule,
