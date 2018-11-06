@@ -22,6 +22,8 @@ import { WokerReviewComponent } from './woker-review/woker-review.component';
 import { DetaleComponent } from './detale/detale.component';
 import { MovebarComponent } from './movebar/movebar.component';
 import { OrderService } from './Services/Order/order.service';
+import { UzsakymaiComponent } from './uzsakymai/uzsakymai.component';
+import { RegistrationComponent } from './registration/registration.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import { OrderService } from './Services/Order/order.service';
     OrderListComponent,
     WokerReviewComponent,
     DetaleComponent,
-    MovebarComponent
+    MovebarComponent,
+    UzsakymaiComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

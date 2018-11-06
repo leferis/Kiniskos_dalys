@@ -1,9 +1,6 @@
 <div class="row justify-content-md-center">
 <app-movebar></app-movebar>
 </div>
-<span class="btn btn-success" name="Prideti">
-    <i class="fa fa-plus-square" (click)="open(modal, 0)"></i>
-</span>
 <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-10">
@@ -35,9 +32,13 @@
                 </tr>
             </tbody>
         </table>
-        <span (click)="getData()">asdasd</span>
     </div>
-    <div class="col-lg-1"></div>
+    <div class="col-lg-1">
+        <span class="btn btn-success" name="Prideti">
+            <i class="fa fa-plus-square" (click)="open(modal, 0)"></i>
+        </span>
+
+    </div>
 </div>
 
 <ng-template #modal let-c="close" let-d="dismiss">

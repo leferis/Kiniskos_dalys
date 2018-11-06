@@ -1,0 +1,29 @@
+
+<div id= "Forma">
+  <br>
+  <label id="Telstas" style="font-size: 32px;padding-left: 42%">Registracijos forma</label>
+  <br>
+  <form id="Login">
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" [disabled]="Dissable" placeholder="Vardas">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" [disabled]="Dissable" placeholder="Pavarde">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class= "col">
+        <input type="date" class="form-control" [disabled]="Dissable" placeholder="Gimimo data" max="2018-01-01">
+      </div>
+      <div class= "col">
+        <input type="text" class="form-control"  [disabled]="Dissable" placeholder="Adresas">
+      </div>
+    </div>
+ <br>
+      <div id="mygtukas"style="padding-left: 0%">
+      <button [routerLink]="['../Login']" class="btn btn-success"  >Baigti registracija</button>
+     </div>
+  </form>
+  </div>

@@ -1,0 +1,59 @@
+<div class="row justify-content-md-center">
+  <app-movebar></app-movebar>
+  </div>
+  <div class="row justify-content-md-center">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-10">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>Užsakymo nr.</th>
+                      <th>Data</th>
+                      <th>Būsėna</th>
+                      <th>Suma</th>
+                      <th>Keisti Būsėna</th>
+                  </tr>
+              </thead>
+  
+              <tbody>
+                  <!-- filtruojam be pipe -->
+                  <tr *ngFor="let i of data">
+                      <th>{{i.OrderNumber}}</th>
+                      <th>{{i.Date}}</th>
+                      <th>{{i.State}}</th>
+                      <th>{{i.Suma}}</th>
+                      <th>
+                          <span class="btn btn-secondary" (click)="open(modal, ind)">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                          </span>
+                      </th>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="col-lg-1"></div>
+  </div>
+  <ng-template #modal let-c="close" let-d="dismiss">
+      <div class="modal-header">
+          <h4 class="modal-title">Užsakymas</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d()">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <thead>
+          <th>Prekė</th>
+          <th>kiekis</th>
+          <th>Kaina</th>
+        </thead>
+          <!-- <div *ngFor="let item of data" id="User"> -->
+              <div>
+            <th>Pavadinimas</th>
+            <th>3</th>
+            <th>6,9</th>
+       </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="c()">Uždaryti</button>
+      </div>
+  </ng-template>
