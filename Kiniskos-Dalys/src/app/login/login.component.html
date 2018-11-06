@@ -4,18 +4,23 @@
 
      <div class="form-group" id="User">
 
-      <p id="text">Please enter your email and password</p>
-         <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+      <p id="text">Prašome įveskite savo prisijungimo varda ir slaptažodį</p>
+         <input type="email" class="form-control" id="inputEmail" placeholder="Prisijungimo vardas">
 
      </div>
 
      <div class="form-group" id="Pass">
 
-         <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+         <input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis">
 
      </div>
-     <div id="mygtukas">
+     <div id="mygtukas" class="row">
+         <div class="col-md-1">
      <button [routerLink]="['../Account']" class="btn btn-success" >Login</button>
+    </div>
+     <div class="asd">
+     <button [routerLink]="['../registration']" class="btn btn-success" >Registracija</button>
+    </div>
     </div>
  </form>
  </div>
