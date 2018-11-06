@@ -18,13 +18,10 @@
             <tbody>
                 <!-- filtruojam be pipe -->
                 <tr *ngFor="let i of data">
-                    <th>{{i.Tabel}}</th>
-                    <th>{{i.Name}}</th>
-                    <th>
-                        <span class="btn btn-danger">
-                            <i class="fa fa-minus-square"></i>
-                        </span>
-                    </th>
+                    <th>{{i.OrderNumber}}</th>
+                    <th>{{i.Date}}</th>
+                    <th>{{i.State}}</th>
+                    <th>{{i.Suma}}</th>
                     <th>
                         <span class="btn btn-secondary" (click)="open(modal, ind)">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -49,8 +46,11 @@
         <th>kiekis</th>
         <th>Kaina</th>
       </thead>
-        <div *ngFor="let item of items" id="User">
-          
+        <!-- <div *ngFor="let item of data" id="User"> -->
+            <div>
+          <th>Pavadinimas</th>
+          <th>3</th>
+          <th>6,9</th>
      </div>
     </div>
     <div class="modal-footer">

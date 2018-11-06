@@ -21,6 +21,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { WokerReviewComponent } from './woker-review/woker-review.component';
 import { DetaleComponent } from './detale/detale.component';
 import { MovebarComponent } from './movebar/movebar.component';
+import { OrderService } from './Services/Order/order.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,7 @@ import { MovebarComponent } from './movebar/movebar.component';
     NgbModule,
     AngularFontAwesomeModule
   ],
-  providers: [GetUserService,WorkerService],
+  providers: [GetUserService,WorkerService,OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

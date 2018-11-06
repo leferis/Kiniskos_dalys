@@ -1,6 +1,9 @@
+<div class="row justify-content-md-center">
 <app-movebar></app-movebar>
+</div>
+<div class="row justify-content-md-center">
 <form>
-    <div class="row justify-content-md-center">
+    <div class="row">
     <div class="col">
       <input type="text" class="form-control" [disabled]="Dissable" placeholder="Vardas">
     </div>
@@ -21,3 +24,4 @@
   <Button class="btn btn-success"  *ngIf="!Dissable">Įsaugoti</Button>
   <button class="btn btn-danger"  *ngIf="!Dissable">Atšaukti</button>
 </form>
+</div>
