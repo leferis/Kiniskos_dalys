@@ -23,6 +23,9 @@ import { WokerReviewComponent } from './woker-review/woker-review.component';
 import { DetaleComponent } from './detale/detale.component';
 import { UzsakymaiComponent } from './uzsakymai/uzsakymai.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ShopComponent } from './shop/shop.component';
+import { ShopListComponent } from './shop-list/shop-list.component';
+import { OrdersComponent } from './orders/orders.component';
 const routes: Routes =[
 {path:'', component: MainComponent},
 {path:'Login',component: LoginComponent},
@@ -46,7 +49,10 @@ const routes: Routes =[
 {path:'TempCarOrder',component:TempCarOrderComponent},
 {path:'TempCarReturn',component:TempCarReturnComponent},
 {path:'TempCarAdd',component:TempCarAddComponent},
-{path:'TempCarFixDel',component:TempCarFixDelComponent}
+{path:'TempCarFixDel',component:TempCarFixDelComponent},
+{path: 'Shop', component:ShopComponent},
+{path: 'ShopList', component:ShopListComponent},
+{path: 'Orders', component:OrdersComponent}
 ]
 @NgModule({
   imports: [

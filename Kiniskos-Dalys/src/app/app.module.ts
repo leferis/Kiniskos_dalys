@@ -36,6 +36,9 @@ import { TempCarReturnComponent } from './temp-car-return/temp-car-return.compon
 import { TempCarAddComponent } from './temp-car-add/temp-car-add.component';
 import { TempCarFixDelComponent } from './temp-car-fix-del/temp-car-fix-del.component';
 import { TempCarSubSysComponent } from './temp-car-sub-sys/temp-car-sub-sys.component';
+import { ShopComponent } from './shop/shop.component';
+import { ShopListComponent } from './shop-list/shop-list.component';
+import { OrdersComponent } from './orders/orders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +66,9 @@ import { TempCarSubSysComponent } from './temp-car-sub-sys/temp-car-sub-sys.comp
     TempCarAddComponent,
     TempCarFixDelComponent,
     TempCarSubSysComponent,
+    ShopComponent,
+    ShopListComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
