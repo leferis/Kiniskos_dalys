@@ -26,6 +26,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ShopComponent } from './shop/shop.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { OrdersComponent } from './orders/orders.component';
+import { NewRepairComponent } from './new-repair/new-repair.component';
 const routes: Routes =[
 {path:'', component: MainComponent},
 {path:'Login',component: LoginComponent},
@@ -52,7 +53,8 @@ const routes: Routes =[
 {path:'TempCarFixDel',component:TempCarFixDelComponent},
 {path: 'Shop', component:ShopComponent},
 {path: 'ShopList', component:ShopListComponent},
-{path: 'Orders', component:OrdersComponent}
+{path: 'Orders', component:OrdersComponent},
+{path: 'NewRepair', component:NewRepairComponent},
 ]
 @NgModule({
   imports: [

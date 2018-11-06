@@ -9,6 +9,8 @@ import {Repair} from '../repair';
 export class RepairListComponent implements OnInit {
   repairs:Repair[]=Repairs;
   selectedRepair:Repair;
+  useriui:string = "Mano remontai";
+  adminui:string = "Remontai";
   constructor() { }
 
   ngOnInit() {
