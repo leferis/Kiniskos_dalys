@@ -39,6 +39,7 @@ import { TempCarSubSysComponent } from './temp-car-sub-sys/temp-car-sub-sys.comp
 import { ShopComponent } from './shop/shop.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { OrdersComponent } from './orders/orders.component';
+import { NewRepairComponent } from './new-repair/new-repair.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,8 @@ import { OrdersComponent } from './orders/orders.component';
     TempCarSubSysComponent,
     ShopComponent,
     ShopListComponent,
-    OrdersComponent
+    OrdersComponent,
+    NewRepairComponent,
   ],
   imports: [
     BrowserModule,
