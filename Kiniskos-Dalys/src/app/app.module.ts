@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { NewRepairComponent } from './new-repair/new-repair.component';
+import { VINService } from './Services/VIN/vin.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,9 +80,10 @@ import { NewRepairComponent } from './new-repair/new-repair.component';
     HttpModule,
     HttpClientModule,
     NgbModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    FormsModule
   ],
-  providers: [GetUserService,WorkerService,OrderService],
+  providers: [GetUserService,WorkerService,OrderService,VINService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
