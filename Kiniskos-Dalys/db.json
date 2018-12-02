@@ -9,5 +9,16 @@
 			"Password": "333",
 			"Tabel":"23322"
 		}
-	]
+	],
+	"Order":[{
+	"OrderNumber":"LT1",
+	"Date":"2018-01-02",
+	"State":"paruošta",
+	"Suma":"201,99"
+	}],
+	"Products":[{
+	"Name":"Selenblokas",
+	"Quantity":"3",
+	"Kaina":"99,32"
+	}]
 }
