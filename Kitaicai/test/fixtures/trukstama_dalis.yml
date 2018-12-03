@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Data: 2018-12-03
+  Dalis: MyString
+  id_trukstama_Dalis: 
+  fk_Darbuotojastabelio_nr: 
+
+two:
+  Data: 2018-12-03
+  Dalis: MyString
+  id_trukstama_Dalis: 
+  fk_Darbuotojastabelio_nr: 

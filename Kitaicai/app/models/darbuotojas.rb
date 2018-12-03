@@ -1,0 +1,2 @@
+class Darbuotojas < ApplicationRecord
+end

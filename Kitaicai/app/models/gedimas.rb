@@ -1,0 +1,2 @@
+class Gedimas < ApplicationRecord
+end

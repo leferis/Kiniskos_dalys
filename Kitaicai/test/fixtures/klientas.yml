@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Slapyvardis: MyString
+  string: MyString
+  Vardas: MyString
+  string: MyString
+  Pavarde: MyString
+  string: MyString
+  Slaptazodis: MyString
+  string: MyString
+  Tipas: MyString
+  string: MyString
+
+two:
+  Slapyvardis: MyString
+  string: MyString
+  Vardas: MyString
+  string: MyString
+  Pavarde: MyString
+  string: MyString
+  Slaptazodis: MyString
+  string: MyString
+  Tipas: MyString
+  string: MyString

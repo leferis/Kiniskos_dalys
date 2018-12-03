@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  data: 2018-12-03
+  Tekstas: MyString
+  Tipas: MyString
+  fk_KlientasID: 
+
+two:
+  id: 
+  data: 2018-12-03
+  Tekstas: MyString
+  Tipas: MyString
+  fk_KlientasID: 

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  VIN: MyString
+  Marke: MyString
+  Modelis: MyString
+  kubatura: 
+  gamybos_metai: 2018-12-03
+  registracijos_numeris: MyString
+  pakaitinis_auto: MyString
+  kuras: MyString
+  fk_klientasId: 
+  fk_ImonesImones_kodas: MyString
+  fk_klientasId1: 
+
+two:
+  id: 
+  VIN: MyString
+  Marke: MyString
+  Modelis: MyString
+  kubatura: 
+  gamybos_metai: 2018-12-03
+  registracijos_numeris: MyString
+  pakaitinis_auto: MyString
+  kuras: MyString
+  fk_klientasId: 
+  fk_ImonesImones_kodas: MyString
+  fk_klientasId1: 

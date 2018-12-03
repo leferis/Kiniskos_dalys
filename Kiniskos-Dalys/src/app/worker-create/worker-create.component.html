@@ -1,0 +1,74 @@
+<div class="row justify-content-md-center">
+<app-movebar></app-movebar>
+</div>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tabelio Nr.</th>
+                    <th>Vardas</th>
+                    <th>Trinti</th>
+                    <th>Redaguoti</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- filtruojam be pipe -->
+                <tr *ngFor="let i of data">
+                    <th>{{i.Tabel}}</th>
+                    <th>{{i.Name}}</th>
+                    <th>
+                        <span class="btn btn-danger">
+                            <i class="fa fa-minus-square"></i>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="btn btn-secondary" (click)="open(modal, ind)">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </span>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-1">
+        <span class="btn btn-success" name="Prideti">
+            <i class="fa fa-plus-square" (click)="open(modal, 3)"></i>
+        </span>
+
+    </div>
+</div>
+
+<ng-template #modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Darbuotojo informacija</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group" id="User">
+            <input type="text" class="form-control" id="inputText" placeholder="Vardas">
+        </div>
+        <div class="form-group" id="Pavarde">
+                <input type="text" class="form-control" id="inputText" placeholder="Pavarde">
+        </div>
+        <div class="form-group" id="Pass">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis">
+        </div>
+        <div class="form-group" id="Tabelio nr.">
+                <input type="text" class="form-control" id="inputText" placeholder="Tabelio nr.">
+        </div>
+        <div class="form-group" id="Pareigos">
+                <input type="text" class="form-control" id="inputText" placeholder="Pareigos">
+        </div>
+        <div class= "col">
+                <input type="date" class="form-control"  placeholder="Gimimo data" max="2018-01-01">
+     </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c()">Uždaryti</button>
+    </div>
+</ng-template>

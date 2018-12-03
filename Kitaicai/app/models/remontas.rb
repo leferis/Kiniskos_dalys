@@ -1,0 +1,2 @@
+class Remonta < ApplicationRecord
+end
