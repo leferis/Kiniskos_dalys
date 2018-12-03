@@ -40,6 +40,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { NewRepairComponent } from './new-repair/new-repair.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +76,7 @@ import { NewRepairComponent } from './new-repair/new-repair.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpModule,
     HttpClientModule,
     NgbModule,

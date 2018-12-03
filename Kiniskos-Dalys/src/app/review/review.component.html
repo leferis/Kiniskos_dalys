@@ -5,15 +5,15 @@
 <form>
   <label>Atsiliepimo tipas:</label>
   <br>
-    <select id="teigiamas">
+    <select id="teigiamas"  #selectedCategory>
       <option value="Teigiamas">Teigiamas</option>
       <option value="Neigiamas">Neigiamas</option>
       </select>
     <br>
     <label>Žinutė:</label>
     <br>
-<textarea name="Message" id="Message"></textarea>
+<textarea name="Message" id="Message" [(ngModel)]="Review"></textarea>
 <br>
-<button class="btn btn-success">Pateikti</button>
+<span class="btn btn-success" (click)="ideti(selectedCategory.value)">Pateikti</span>
 </form>
 </div>

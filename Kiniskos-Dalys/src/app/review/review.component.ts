@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewComponent implements OnInit {
 
+  public Review:string;
+  public type:string;
   constructor() { }
 
   ngOnInit() {
+  }
+  public ideti(a:string):void{
+    
   }
 }

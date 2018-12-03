@@ -2,9 +2,9 @@ module Api
     module V1 
      class AtsiliepimasController <ApplicationController
         def index
-            articles = Atsiliepimas.order('ID DESC')
+            articles = Atsiliepimas.order('Data DESC')
             render json: {status: 'SUCCESS', message: 'Loaded articles', data:articles},status: :ok
-    end
+        end
     def show
        articles= Atsiliepimas.find(params[:ID])
        render json: {status: 'SUCCESS', message: 'Loaded article', data:articles},status: :ok
@@ -25,3 +25,4 @@ module Api
    end
     end
  end
+end
