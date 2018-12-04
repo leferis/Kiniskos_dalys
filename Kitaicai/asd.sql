@@ -1,30 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Dec 03, 2018 at 09:18 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 5.5.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Database: `is`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ar_internal_metadata`
---
 
 CREATE TABLE IF NOT EXISTS `ar_internal_metadata` (
   `key` varchar(255) NOT NULL,
@@ -38,6 +11,8 @@ CREATE TABLE IF NOT EXISTS `ar_internal_metadata` (
 -- Dumping data for table `ar_internal_metadata`
 --
 
+INSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES
+('environment', 'development', '2018-12-02 20:43:19', '2018-12-02 20:43:19');
 
 -- --------------------------------------------------------
 
@@ -120,8 +95,10 @@ CREATE TABLE IF NOT EXISTS `darbuotojas` (
   `Pavarde` varchar(255) NOT NULL,
   `Pareigos` varchar(255) NOT NULL,
   `Slaptazodis` varchar(255) NOT NULL,
+  `RemontasID` int(11) NOT NULL,
   `fk_ImoneImones_Kodas` varchar(255) NOT NULL,
   PRIMARY KEY (`tabelio_nr`),
+  UNIQUE KEY `fk_RemontasID` (`RemontasID`),
   KEY `dirba` (`fk_ImoneImones_Kodas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -178,6 +155,11 @@ CREATE TABLE IF NOT EXISTS `klientas` (
 -- Dumping data for table `klientas`
 --
 
+INSERT INTO `klientas` (`ID`, `Slapyvardis`, `Vardas`, `Pavarde`, `Slaptazodis`, `Tipas`) VALUES
+(1, 'Pranux', 'Pranas', 'Virma', 'asdasd', 'Darbuotoja'),
+(2, 'Pranux', 'Pranas', 'Virma', 'asdasd', 'Worker'),
+(3, NULL, 'Peter', 'DAFAQW', 'SDA', 'Worker'),
+(4, 'asd', 'Peter', 'DAFAQW', 'SDA', 'Worker');
 
 -- --------------------------------------------------------
 
@@ -208,10 +190,8 @@ CREATE TABLE IF NOT EXISTS `remontas` (
   `Remonto_kaina` double NOT NULL,
   `Baigtas` tinyint(1) NOT NULL,
   `fk_UžsakymasId` int(11) NOT NULL,
-  `fk_Darbuotojas` int(11) null,
   PRIMARY KEY (`ID`),
-  KEY `uzsako1` (`fk_UžsakymasId`),
-  KEY `tabelis` (`fk_Darbuotojas`)
+  KEY `uzsako1` (`fk_UžsakymasId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -318,6 +298,7 @@ ALTER TABLE `dalis`
 -- Constraints for table `darbuotojas`
 --
 ALTER TABLE `darbuotojas`
+  ADD CONSTRAINT `Darbuotojas_ibfk_1` FOREIGN KEY (`RemontasID`) REFERENCES `remontas` (`ID`),
   ADD CONSTRAINT `dirba` FOREIGN KEY (`fk_ImoneImones_Kodas`) REFERENCES `imone` (`Imones_Kodas`);
 
 --
@@ -338,7 +319,7 @@ ALTER TABLE `pageidavimas`
 --
 ALTER TABLE `remontas`
   ADD CONSTRAINT `uzsako1` FOREIGN KEY (`fk_UžsakymasId`) REFERENCES `užsakymas` (`Id`);
-	ADD CONSTRAINT `darbuotojass` FOREIGN KEY (`fk_Darbuotojas`) REFERENCES `darbuotojas` (`tabelio_nr`);
+
 --
 -- Constraints for table `trukstama_dalis`
 --
@@ -359,4 +340,3 @@ ALTER TABLE `užsakymas`
   ADD CONSTRAINT `apmoka` FOREIGN KEY (`fk_Saskaitatabelio_nr`) REFERENCES `saskaita` (`id`),
   ADD CONSTRAINT `atlieka` FOREIGN KEY (`fk_KlientasID`) REFERENCES `klientas` (`ID`),
   ADD CONSTRAINT `užsisako` FOREIGN KEY (`fk_AutomobilisID`) REFERENCES `automobilis` (`ID`);
-

@@ -1,7 +1,8 @@
 export class user{
-    Name: string;
-    Password:string;
-    Birthday:string;
-    Position:string;
-    Tabel:string;
+    Vardas: string;
+    Pavarde:string;
+    Slaptazodis:string;
+    Pareigos:string;
+    tabelio_nr:string;
+    fk_ImoneImones_Kodas:string;
 }

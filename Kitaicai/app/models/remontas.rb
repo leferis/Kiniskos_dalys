@@ -1,2 +1,2 @@
-class Remonta < ApplicationRecord
+class Remontas < ApplicationRecord
 end

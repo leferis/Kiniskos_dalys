@@ -9,6 +9,7 @@
                 <tr>
                     <th>Tabelio Nr.</th>
                     <th>Vardas</th>
+                    <th>Pavardė</th>
                     <th>Trinti</th>
                     <th>Redaguoti</th>
                 </tr>
@@ -16,12 +17,13 @@
 
             <tbody>
                 <!-- filtruojam be pipe -->
-                <tr *ngFor="let i of data">
-                    <th>{{i.Tabel}}</th>
-                    <th>{{i.Name}}</th>
+                <tr  *ngFor="let i of data;let ind = index;">
+                    <th>{{i.tabelio_nr}}</th>
+                    <th>{{i.Vardas}}</th>
+                    <th>{{i.Pavarde}}</th>
                     <th>
                         <span class="btn btn-danger">
-                            <i class="fa fa-minus-square"></i>
+                            <i class="fa fa-minus-square" (click)="destroy(ind)"></i>
                         </span>
                     </th>
                     <th>
@@ -35,7 +37,7 @@
     </div>
     <div class="col-lg-1">
         <span class="btn btn-success" name="Prideti">
-            <i class="fa fa-plus-square" (click)="open(modal, 3)"></i>
+            <i class="fa fa-plus-square" (click)="open(modal, -2)"></i>
         </span>
 
     </div>
@@ -50,25 +52,27 @@
     </div>
     <div class="modal-body">
         <div class="form-group" id="User">
-            <input type="text" class="form-control" id="inputText" placeholder="Vardas">
+            <input type="text" class="form-control" id="inputText" [(ngModel)]="Vardas" placeholder="Vardas">
         </div>
         <div class="form-group" id="Pavarde">
-                <input type="text" class="form-control" id="inputText" placeholder="Pavarde">
+                <input type="text" class="form-control" id="inputText" [(ngModel)]="Pavarde" placeholder="Pavarde">
         </div>
         <div class="form-group" id="Pass">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis">
+            <input type="password" class="form-control" id="inputPassword"  [(ngModel)]="Slaptazodis"placeholder="Slaptažodis">
         </div>
         <div class="form-group" id="Tabelio nr.">
-                <input type="text" class="form-control" id="inputText" placeholder="Tabelio nr.">
+                <input type="text" class="form-control" id="inputText" [(ngModel)]="Tabelis" placeholder="Tabelio nr.">
         </div>
         <div class="form-group" id="Pareigos">
-                <input type="text" class="form-control" id="inputText" placeholder="Pareigos">
+                <input type="text" class="form-control" id="inputText" [(ngModel)]="Slaptazodis" placeholder="Pareigos">
         </div>
         <div class= "col">
-                <input type="date" class="form-control"  placeholder="Gimimo data" max="2018-01-01">
+                <input type="text" class="form-control" [(ngModel)]="Vieta"  placeholder="Imones kodas">
      </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="c()">Uždaryti</button>
+        <span class="btn btn-primary" (click)="Save()">Išsaugoti</span>
     </div>
+   
 </ng-template>

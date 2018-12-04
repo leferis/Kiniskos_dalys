@@ -3,7 +3,7 @@ module Api
      class DarbuotojasController <ApplicationController
          def index
              articles = Darbuotojas.order('Vardas DESC')
-             render json: {status: 'SUCCESS', message: 'Loaded articles', data:articles},status: :ok
+             render json: {data:articles},status: :ok
      end
      def show
         articles= Darbuotojas.find(params[:id])
@@ -18,7 +18,11 @@ module Api
             render json: {status: 'ERROR', message: 'Loaded article', data:articles.errors},status: :unprocessable_entity
         end
      end
-
+     def destroy
+        article= Darbuotojas.find(params[:id])
+        article.destroy
+        render json: {status: 'Deleted'},status: :ok
+     end
 
     def article_param
         params.permit(:tabelio_nr,:Vardas,:Pavarde,:Pareigos,:Slaptazodis,:RemontasID,:fk_ImoneImones_Kodas)
