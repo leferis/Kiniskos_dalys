@@ -1,2 +1,2 @@
-class Dali < ApplicationRecord
+class Dalis < ApplicationRecord
 end
