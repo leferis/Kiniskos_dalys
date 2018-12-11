@@ -1,0 +1,2 @@
+class Remontas < ApplicationRecord
+end

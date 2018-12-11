@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Matmenys: MyString
+  ID: 
+  Kilme: MyString
+  svoris: 
+  aukstis: 
+  ilgis: 
+  Plotis: 
+  Pavadinimas: MyString
+  Pirkimo_kaina: 
+  Pardavimo_kaina: 
+  kategorija: MyString
+  fk_Uzsakymasid: 
+
+two:
+  Matmenys: MyString
+  ID: 
+  Kilme: MyString
+  svoris: 
+  aukstis: 
+  ilgis: 
+  Plotis: 
+  Pavadinimas: MyString
+  Pirkimo_kaina: 
+  Pardavimo_kaina: 
+  kategorija: MyString
+  fk_Uzsakymasid: 

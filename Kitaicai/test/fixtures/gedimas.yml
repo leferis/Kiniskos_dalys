@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID: 
+  Aprasymas: MyString
+  Kategorija: MyString
+  fk_RemontasID: 
+  fk_AutomobilisID: 
+
+two:
+  ID: 
+  Aprasymas: MyString
+  Kategorija: MyString
+  fk_RemontasID: 
+  fk_AutomobilisID: 

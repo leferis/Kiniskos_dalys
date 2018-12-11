@@ -1,0 +1,2 @@
+class Automobilis < ApplicationRecord
+end

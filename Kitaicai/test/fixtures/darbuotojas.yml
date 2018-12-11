@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tabelio_nr: 
+  vardas: MyString
+  Pavarde: MyString
+  Pareigos: MyString
+  Slaptazodis: MyString
+
+two:
+  tabelio_nr: 
+  vardas: MyString
+  Pavarde: MyString
+  Pareigos: MyString
+  Slaptazodis: MyString

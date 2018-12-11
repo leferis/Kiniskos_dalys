@@ -1,0 +1,2 @@
+class TrukstamaDalis < ApplicationRecord
+end

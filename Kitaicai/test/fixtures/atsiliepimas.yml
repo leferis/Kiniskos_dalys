@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Id: 
+  data: 2018-12-03
+  teigimas: 
+  aprasymas: MyString
+  fk_AutomobilisID: 
+  fk_DalisID: 
+  fk_RemontasID: 
+  fk_KlientasID: 
+
+two:
+  Id: 
+  data: 2018-12-03
+  teigimas: 
+  aprasymas: MyString
+  fk_AutomobilisID: 
+  fk_DalisID: 
+  fk_RemontasID: 
+  fk_KlientasID: 

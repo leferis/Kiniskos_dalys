@@ -1,0 +1,2 @@
+class Pageidavimas < ApplicationRecord
+end

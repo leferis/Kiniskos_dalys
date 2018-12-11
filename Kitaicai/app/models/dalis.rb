@@ -1,0 +1,2 @@
+class Dalis < ApplicationRecord
+end
