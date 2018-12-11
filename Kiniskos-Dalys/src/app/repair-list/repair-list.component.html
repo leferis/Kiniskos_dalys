@@ -43,9 +43,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let repair of repairs" routerLink="/Repair/{{repair.id}}">
+              <tr *ngFor="let userCar of userCars" routerLink="/Repair/{{repair.id}}">
                   <td>#{{repair.id}}</td>
-                  <td>{{repair.Make}}</td>
+                  <td>{{userCar.Marke}}</td>
                   <td>{{repair.Model}}</td>
                   <td>{{repair.Year}}</td>
                   <td>{{repair.Problem}}</td>

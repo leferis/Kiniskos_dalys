@@ -42,6 +42,8 @@ import { ShopListComponent } from './shop-list/shop-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { NewRepairComponent } from './new-repair/new-repair.component';
 import { VINService } from './Services/VIN/vin.service';
+import {DBaseService} from './Services/DB/d-base.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +85,7 @@ import { VINService } from './Services/VIN/vin.service';
     AngularFontAwesomeModule,
     FormsModule
   ],
-  providers: [GetUserService,WorkerService,OrderService,VINService],
+  providers: [GetUserService,WorkerService,OrderService,VINService,DBaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
