@@ -40,7 +40,9 @@ import { ShopComponent } from './shop/shop.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { NewRepairComponent } from './new-repair/new-repair.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReviewServiceService } from './Services/review/review-service.service';
+import { TukstamasService } from './Services/Sudetinga/tukstamas.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,13 +78,14 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpModule,
     HttpClientModule,
     NgbModule,
     AngularFontAwesomeModule
   ],
-  providers: [GetUserService,WorkerService,OrderService],
+  providers: [GetUserService,WorkerService,OrderService,ReviewServiceService,TukstamasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

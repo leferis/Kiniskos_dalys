@@ -15,6 +15,14 @@ export class GetUserService {
     console.log(a);
     return this.http.get(this.url,{responseType:"json"});
   }
+  updateUser(a,id){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.put(this.url+"/"+id,a,{headers,responseType:"json"});
+  }
+  createUser(a){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(this.url,a,{headers,responseType:"json"});
+  }
   destroyUser(id:string){
     return this.http.delete(this.url+"/"+id);
   }

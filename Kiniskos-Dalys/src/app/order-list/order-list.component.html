@@ -9,7 +9,6 @@
                 <tr>
                     <th>Užsakymo nr.</th>
                     <th>Data</th>
-                    <th>Būsėna</th>
                     <th>Suma</th>
                     <th>Detaliau</th>
                 </tr>
@@ -17,10 +16,9 @@
 
             <tbody>
                 <!-- filtruojam be pipe -->
-                <tr *ngFor="let i of data">
-                    <th>{{i.OrderNumber}}</th>
-                    <th>{{i.Date}}</th>
-                    <th>{{i.State}}</th>
+                <tr *ngFor="let i of datauser;let ind = index;">
+                    <th>{{i.id}}</th>
+                    <th>{{i.Data}}</th>
                     <th>{{i.Suma}}</th>
                     <th>
                         <span class="btn btn-secondary" (click)="open(modal, ind)">

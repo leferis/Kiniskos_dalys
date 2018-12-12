@@ -19,12 +19,26 @@ export class OrderListComponent implements OnInit {
   ads:any;
   ngOnInit() {
    
-  this.user.getOrder().subscribe( (Response:order[])=> {
-    this.data=Response;
+  this.user.getOrder().subscribe( (Response)=> {
+    for(var key in Response)
+   {
+      if(Response[key] instanceof Object)
+      {
+        console.log(key);
+     this.data=Response[key];
+     console.log(this.data);
+       }
+      }
   });
-  this.user.getDetails().subscribe( (Response:Details[])=> {
-    this.datauser=Response;
-    console.log(Response);
+  this.user.getDetails().subscribe( (Response)=> {
+    for(var key in Response)
+   {
+      if(Response[key] instanceof Object)
+      {
+     this.datauser=Response[key];
+     console.log(this.datauser);
+       }
+      }
   });
   console.log(this.datauser[0]);
   }
@@ -33,7 +47,7 @@ export class OrderListComponent implements OnInit {
   }
   open(modal, employeeIndex) {
     this.modalService.open(modal);
-    this.datauser = this.data.map(arr => arr[employeeIndex]);
+   // this.datauser = this.data.map(arr => arr[employeeIndex]);
 }
 
 }

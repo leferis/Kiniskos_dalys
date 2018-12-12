@@ -1,6 +1,7 @@
 export class order{
-    OrderNumber: string;
-    Date:string;
-    State:string;
+    Id: string;
+    Data:string;
+    Busena:string;
     Suma:string;
+    fk_KlientasID:string;
 }

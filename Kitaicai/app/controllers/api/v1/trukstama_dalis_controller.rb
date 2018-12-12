@@ -2,15 +2,15 @@ module Api
     module V1 
      class TrukstamaDalisController <ApplicationController
          def index
-             articles = Trukstama_Dalis.order('Data DESC')
+             articles =Trukstama_dalis.order('Data DESC')
              render json: {status: 'SUCCESS', message: 'Loaded articles', data:articles},status: :ok
      end
      def show
-        articles= Trukstama_Dalis.find(params[:id])
+        articles= Trukstama_dalis.find(params[:id])
         render json: {status: 'SUCCESS', message: 'Loaded article', data:articles},status: :ok
      end
      def create 
-        articles = Trukstama_Dalis.new(article_param)
+        articles = Trukstama_dalis.new(article_param)
 
         if articles.save
             render json: {status: 'SUCCESS', message: 'Loaded article', data:articles},status: :ok
@@ -21,7 +21,7 @@ module Api
 
 
     def article_param
-        params.permit(:Data,:Dalis,:id_Trukstama_Dalis,:fk_Darbuotojastabelio_nr)
+        params.permit(:Data,:fk_Darbuotojastabelio_nr,:Dalis)
     end
     end
  end

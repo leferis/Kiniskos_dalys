@@ -1,0 +1,2 @@
+class Užsakymas < ApplicationRecord
+end

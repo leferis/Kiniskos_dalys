@@ -2,26 +2,27 @@
 <app-movebar></app-movebar>
 </div>
 <div class="row justify-content-md-center">
-<form>
+<form #review="ngForm"  (ngSubmit)="registerUser(signupForm)">
     <label>Atsiliepimo tipas:</label>
     <br>
     
-      <select id="teigiamas">
+    <select id="teigiamas"  #selectedCategory>
         <option value="Teigiamas">Teigiamas</option>
         <option value="Neigiamas">Neigiamas</option>
-      </select>
+        </select>
       <br>
       <label>Darbuotojas:</label>
       <br>
-      <select id="Remontas">
-        <option value="Asd">Asd</option>
-        <option value="asde">asde</option>
+      <select id="Remontas" #selectedbedarbis>
+          <option  *ngFor="let i of data" [value]="i.tabelio_nr">
+              {{i.Vardas}} {{i.Pavarde}}
+            </option>
       </select>
       <br>
       <label>Žinutė:</label>
       <br>
-  <textarea name="Message" id="Message"></textarea>
+  <textarea [(ngModel)]="tekstas" name="Message" id="Message"></textarea>
   <br>
-  <button class="btn btn-success">Pateikti</button>
+  <span class="btn btn-success" (click)="update(selectedbedarbis.value,selectedCategory.value)">Pateikti</span>
   </form>
 </div>

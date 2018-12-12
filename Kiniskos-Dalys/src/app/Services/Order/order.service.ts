@@ -8,14 +8,18 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Details } from '../../DetailsModel';
 @Injectable()
 export class OrderService {
-  url = "http://localhost:3000/Order";
-  url1 = "http://localhost:3000/Products";
+  url = "http://localhost:3000/api/v1/uzsakymas";
+  url1 = "http://localhost:3000/api/v1/saskaita";
   constructor(private http: HttpClient) { }
 
-  getOrder(): Observable<order[]> {
-    return this.http.get<order[]>(this.url);
+  getOrder() {
+    return this.http.get(this.url);
   }
-  getDetails(): Observable<Details[]> {
-    return this.http.get<Details[]>(this.url1);
+  getDetails() {
+    return this.http.get(this.url1);
+  }
+  changeStatus(a,id){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.put(this.url+"/"+id,a,{headers,responseType:"json"});
   }
 }

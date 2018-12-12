@@ -1,2 +1,2 @@
-class TrukstamaDalis < ApplicationRecord
+class Trukstama_dalis < ApplicationRecord
 end

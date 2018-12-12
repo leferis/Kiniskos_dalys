@@ -7,12 +7,12 @@
     <label>Trukstamos detalės užsakymas</label>
  <br>
 
-  <textarea name="Message" id="Message" style="width:200px; height:60px"></textarea>
+  <textarea [(ngModel)]="a" name="Message" id="Message" style="width:200px; height:60px"></textarea>
   <br>
   <label>Kada Reikia detalės?</label>
   <br>
-  <input type="date">
+  <input [(ngModel)]="b"  type="date">
   <br>
-  <button class="btn btn-success">Pateikti</button>
+  <span class="btn btn-success" (click)="update()">Pateikti</span>
   </form>
 </div>

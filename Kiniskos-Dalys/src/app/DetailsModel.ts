@@ -1,5 +1,5 @@
 export class Details{
-    Name: string;
-    Quantity:string;
-    Kaina:string;
+    id: string;
+    suma:string;
+    data:string;
 }

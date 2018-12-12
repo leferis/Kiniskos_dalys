@@ -10,20 +10,18 @@
                       <th>Užsakymo nr.</th>
                       <th>Data</th>
                       <th>Būsėna</th>
-                      <th>Suma</th>
-                      <th>Keisti Būsėna</th>
+                      <th>Keisti</th>
                   </tr>
               </thead>
   
               <tbody>
                   <!-- filtruojam be pipe -->
-                  <tr *ngFor="let i of data">
-                      <th>{{i.OrderNumber}}</th>
-                      <th>{{i.Date}}</th>
-                      <th>{{i.State}}</th>
-                      <th>{{i.Suma}}</th>
+                  <tr *ngFor="let i of data;let ind=index;">
+                      <th>{{i.Id}}</th>
+                      <th>{{i.Data}}</th>
+                      <input [(ngModel)]="i.Busena" placeholder="Busena">
                       <th>
-                          <span class="btn btn-secondary" (click)="open(modal, ind)">
+                          <span class="btn btn-secondary" (click)="change(ind)">
                               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                           </span>
                       </th>

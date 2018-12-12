@@ -16,6 +16,7 @@ export class WorkerCreateComponent implements OnInit {
   data: user[];
   datauser:user[];
   ads:any;
+  update:boolean;
   Vardas:string;
   Pavarde:string;
   Slaptazodis:string;
@@ -46,6 +47,8 @@ export class WorkerCreateComponent implements OnInit {
    this.Tabelis=this.data[employeeIndex].tabelio_nr;
    this.Vieta=this.data[employeeIndex].fk_ImoneImones_Kodas;
    this.Pareigos=this.data[employeeIndex].Pareigos;
+   this.update=true;
+   console.log("wtf");
     }
     else{
       this.Vardas='';
@@ -54,15 +57,26 @@ export class WorkerCreateComponent implements OnInit {
       this.Tabelis='';
       this.Vieta='';
       this.Pareigos='';
+      this.update=false;
     }
 }
 
 save(){
   if(this.Vardas != ''){
     if(this.Pavarde !=''){
-      if(this.Slaptazodis=''){
-        if(this.Tabelis=''){
-          
+      if(this.Slaptazodis!=''){
+        if(this.Tabelis!=''){
+          if(!this.update){
+            var c= JSON.stringify({tabelio_nr:this.Tabelis,Vardas:this.Vardas,Pavarde:this.Pavarde,Pareigos:this.Pavarde,Slaptazodis:this.Slaptazodis,fk_ImoneImones_Kodas:this.Vieta},null,"    ");
+            this.user.createUser(c).subscribe();
+            this.get();
+          }
+          else{
+            var c= JSON.stringify({Vardas:this.Vardas,Pavarde:this.Pavarde,Pareigos:this.Pavarde,Slaptazodis:this.Slaptazodis,fk_ImoneImones_Kodas:this.Vieta},null,"    ");
+            console.log(c);
+            this.user.updateUser(c,this.Tabelis).subscribe();
+            this.get();
+          }
         }
       }
     }

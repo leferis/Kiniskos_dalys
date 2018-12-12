@@ -23,9 +23,18 @@ module Api
         article.destroy
         render json: {status: 'Deleted'},status: :ok
      end
-
+     def update
+            article=Darbuotojas.find(params[:id])
+            if article.update_attributes(article_param)
+                render json: {status: 'SUCCESS', message: 'Loaded article', data:articles},status: :ok
+            
+        else
+            render json: {status: 'ERROR', message: 'Loaded article', data:articles.errors},status: :unprocessable_entity
+        
+    end
+     end
     def article_param
-        params.permit(:tabelio_nr,:Vardas,:Pavarde,:Pareigos,:Slaptazodis,:RemontasID,:fk_ImoneImones_Kodas)
+        params.permit(:tabelio_nr,:Vardas,:Pavarde,:Pareigos,:Slaptazodis,:fk_ImoneImones_Kodas)
     end
     end
  end
