@@ -10,6 +10,7 @@ export class ReviewComponent implements OnInit {
 
   public Review:string;
   public type:string;
+  public klaida:boolean;
   constructor(private serv:ReviewServiceService) { }
 
   ngOnInit() {
@@ -17,8 +18,9 @@ export class ReviewComponent implements OnInit {
   public ideti(a:string):void{
     var text;
     
-    var json = '{'+"\"Data\":"+'"2018-12-11",'+'"Tekstas":"'+this.Review+'",'+'"Tipas":'+(this.type=='Teigiamas'?'"Teigiamas",':'"Neigiamas",')+'"fk_KlientasID":"4"}';
+    var json = '{'+"\"Data\":"+'"2018-12-11",'+'"Tekstas":"'+this.Review+'",'+'"Tipas":"'+a+'","fk_KlientasID":"4"}';
     console.log(json);
-    this.serv.setresponse(json).subscribe();
+    this.serv.setresponse(json).subscribe((data) => this.klaida = false,
+    (err) => this.klaida = true);
   }
 }

@@ -17,6 +17,7 @@ export class OrderListComponent implements OnInit {
   data: order[];
   datauser:Details[];
   ads:any;
+  yra:boolean;
   ngOnInit() {
    
   this.user.getOrder().subscribe( (Response)=> {
@@ -40,6 +41,14 @@ export class OrderListComponent implements OnInit {
        }
       }
   });
+  if(this.data.length !=0){
+    this.yra=true;
+    console.log("wtf");
+  }
+  else{
+    this.yra=false;
+    console.log("elsas");
+  }
   console.log(this.datauser[0]);
   }
   getData():void{

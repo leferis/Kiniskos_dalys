@@ -23,7 +23,7 @@ export class TukstamasService {
   insert2(a,b){
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     this.d=a;
-    var asd=JSON.stringify({Data:'2018-01-01',Dalis:this.d,fk_Darbuotojastabelio_nr:1},null,"  ");
+    var asd=JSON.stringify({Data:'2018-01-01',Dalis:this.d,fk_Darbuotojastabelio_nr:41},null,"  ");
     console.log(asd);
     return this.http.post(this.url,asd,{headers,responseType:"json"})
   }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -40,11 +41,12 @@ import { ShopComponent } from './shop/shop.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { NewRepairComponent } from './new-repair/new-repair.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ReviewServiceService } from './Services/review/review-service.service';
-import { TukstamasService } from './Services/Sudetinga/tukstamas.service';
+import { VINService } from './Services/VIN/vin.service';
 import {DBaseService} from './Services/DB/d-base.service';
 import { RepairDeleteComponent } from './repair-delete/repair-delete.component'
+import { ReviewServiceService } from './Services/review/review-service.service';
+import { TukstamasService } from './Services/Sudetinga/tukstamas.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,14 +83,13 @@ import { RepairDeleteComponent } from './repair-delete/repair-delete.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
     HttpModule,
     HttpClientModule,
     NgbModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    FormsModule
   ],
-  providers: [GetUserService,WorkerService,OrderService,ReviewServiceService,TukstamasService],
+  providers: [GetUserService,WorkerService,OrderService,VINService,DBaseService,GetUserService,WorkerService,OrderService,ReviewServiceService,TukstamasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

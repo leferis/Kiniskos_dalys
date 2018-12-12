@@ -20,12 +20,12 @@ module Api
      end
      def update
         article=Gedimas.find(params[:id])
-        if article.update_attributes(article_param){
+        if article.update_attributes(article_param)
             render json: {status: 'SUCCESS', message: 'Loaded article', data:articles},status: :ok
-        }
-    else{
+        
+    else
         render json: {status: 'ERROR', message: 'Loaded article', data:articles.errors},status: :unprocessable_entity
-    }
+    
 end
  end
 
