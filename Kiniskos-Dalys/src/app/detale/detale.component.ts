@@ -15,8 +15,7 @@ export class DetaleComponent implements OnInit {
   ngOnInit() {
   }
 update(){
-  this.ing.insert(this.a,this.b).subscribe((Response:any) =>{
-    console.log(Response);
-  });
+  this.ing.insert(this.a,this.b).subscribe();
+  
 }
 }

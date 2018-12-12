@@ -43,6 +43,8 @@ import { NewRepairComponent } from './new-repair/new-repair.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReviewServiceService } from './Services/review/review-service.service';
 import { TukstamasService } from './Services/Sudetinga/tukstamas.service';
+import {DBaseService} from './Services/DB/d-base.service';
+import { RepairDeleteComponent } from './repair-delete/repair-delete.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +76,7 @@ import { TukstamasService } from './Services/Sudetinga/tukstamas.service';
     ShopListComponent,
     OrdersComponent,
     NewRepairComponent,
+    RepairDeleteComponent,
   ],
   imports: [
     BrowserModule,

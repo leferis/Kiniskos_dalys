@@ -22,27 +22,38 @@
   </div>
   <div class="py-5">
     <div class="container">
-      <div class="row">
+      <div *ngIf="this.loaded" class="row">
         <div class="col-md-12">
           <form id="c_form-h" class="">
             <div class="form-group row"> <label for="Make" class="col-2 col-form-label">Markė</label>
               <div class="col-10">
-                <input type="text" class="form-control" id="Make" placeholder={{repair.Make}}> </div>
+                <input type="text" readonly class="form-control" id="Make" placeholder={{car.Marke}}> </div>
             </div>
             <div class="form-group row"> <label for="Model" class="col-2 col-form-label">Modelis</label>
               <div class="col-10">
-                <input type="text" class="form-control" id="Model" placeholder={{repair.Model}}> </div>
+                <input type="text" readonly class="form-control" id="Model" placeholder={{car.Modelis}}> </div>
             </div>
             <div class="form-group row"> <label for="Year" class="col-2 col-form-label">Pagaminimo metai</label>
               <div class="col-10">
-                <input type="number" class="form-control" id="Year" placeholder={{repair.Year}}> </div>
+                <input type="number" readonly class="form-control" id="Year" placeholder={{car.Gamybos_Metai}}> </div>
             </div>
             <div class="form-group row"> <label for="Problem" class="col-2 col-form-label">Gedimas</label>
               <div class="col-10">
-                <input type="text" class="form-control" id="Problem" placeholder={{repair.Problem}}> </div>
+                <input type="text" readonly class="form-control" id="Problem" placeholder={{malfunction.Aprasymas}}> </div>
             </div>
-            <button type="submit" class="btn btn-primary">Keisti</button>
-            <button type="cancel" class="btn btn-danger">Atšaukti remontą</button>
+            <div class="form-group row"> <label for="Problem" class="col-2 col-form-label">Užsakymo būsena</label>
+              <div class="col-10">
+                <input type="text" class="form-control" name="sd" [(ngModel)]="orderState" id="orderState" placeholder={{order.Busena}}> </div>
+            </div>
+            <div class="form-group row"> <label for="Problem" class="col-2 col-form-label">Remonto būsena</label>
+              <div class="col-10">
+                <input type="text" class="form-control" name="sds" [(ngModel)]="repairState" id="repairState" placeholder={{repair.Baigtas}}> </div>
+            </div>
+            <div class="form-group row"> <label for="Problem" class="col-2 col-form-label">Remonto kaina</label>
+              <div class="col-10">
+                <input type="text" class="form-control" name="sdgh" [(ngModel)]="newPrice" id="repairState" placeholder={{repair.Remonto_kaina}}> </div>
+            </div>
+            <button type="submit" (click)="this.changeData()" class="btn btn-primary">Keisti</button>
           </form>
         </div>
       </div>

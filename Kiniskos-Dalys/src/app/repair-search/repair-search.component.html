@@ -24,14 +24,51 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="form-group"><label>Pagal valstybinius numerius</label><input type="text" class="form-control" id="inlineFormInputGroup" placeholder="ABC123"></div><button class="btn btn-primary" type="button"><i class="fa fa-search" style=""></i></button>
-          <div class="form-group"><label>Pagal VIN</label><input type="text" class="form-control" id="inlineFormInputGroup" placeholder="VIN00-PAVYZDYS-00"></div>
+          <br>
+          <br>
+          <div class="form-group"><label>Pagal valstybinius numerius</label><input type="text" class="form-control" [(ngModel)]="ValstybinisNr" id="inlineFormInputGroup" placeholder="ABC123"></div><button class="btn btn-primary" (click) = "this.findByLT()" type="button"><i class="fa fa-search"></i></button>
+          <div class="form-group"><label>Pagal VIN</label><input type="text" class="form-control" [(ngModel)]="VIN" id="inlineFormInputGroup" placeholder="VIN00-PAVYZDYS-00"></div>
           <form class="form-inline">
             <div class="input-group">
-              <div class="input-group-append"><button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button></div>
+              <div class="input-group-append"><button class="btn btn-primary" (click) = "this.findByVIN()" type="button"><i class="fa fa-search"></i></button></div>
             </div>
           </form>
         </div>
+      </div>
+      <div *ngIf="this.found">
+      <div class="row" *ngIf="this.found.length > 0">
+        <div class="col-md-12">
+          <table class="table table-striped table-dark table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Nr.</th>
+                <th scope="col">VIN</th>
+                <th scope="col">Markė</th>
+                <th scope="col">Modelis</th>
+                <th scope="col">Pagaminimo metai</th>
+                <th scope="col">Kuro tipas</th>
+                <th scope="col">Gedimas</th>
+                <th scope="col">Data</th>
+                <th scope="col">Remontas baigtas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let element of this.found;let i = index"> <!--routerLink="/Repair/{{repair.id}}"-->
+                  <td>#{{i+1}}</td>
+                  <td>{{element.auto.VIN}}</td>
+                  <td>{{element.auto.Marke}}</td>
+                  <td>{{element.auto.Modelis}}</td>
+                  <td>{{element.auto.Gamybos_Metai}}</td>
+                  <td>{{element.auto.Kuras}}</td>
+                  <td>{{element.gedimas.Kategorija}}</td>
+                  <td>{{element.remontas.Pradzia}}</td>
+                  <td *ngIf="element.remontas.Baigtas == true">Taip</td>
+                  <td *ngIf="element.remontas.Baigtas == false">Ne</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
       </div>
     </div>
   </div>
