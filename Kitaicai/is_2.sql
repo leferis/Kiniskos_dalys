@@ -46,19 +46,16 @@ CREATE TABLE IF NOT EXISTS `ar_internal_metadata` (
 --
 
 CREATE TABLE IF NOT EXISTS `atsiliepimas` (
-  `ID` int(11) NOT NULL DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Data` date NOT NULL,
   `Teigiamas` tinyint(1) NOT NULL,
   `Aprasymas` varchar(255) NOT NULL,
-  `fk_AutomobilisID` int(11) NOT NULL,
-  `fk_DalisID` int(11) NOT NULL,
-  `fk_RemontasID` int(11) NOT NULL,
-  `fk_KlientasID` int(11) NOT NULL,
+  `fk_Darbuotojastabelio_nr` int(11),
   PRIMARY KEY (`ID`),
-  KEY `pakaitinis_turi` (`fk_AutomobilisID`),
-  KEY `ivertina` (`fk_DalisID`),
-  KEY `raso` (`fk_KlientasID`)
+  KEY `ivertina` (`fk_Darbuotojastabelio_nr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 -- --------------------------------------------------------
 
@@ -67,20 +64,20 @@ CREATE TABLE IF NOT EXISTS `atsiliepimas` (
 --
 
 CREATE TABLE IF NOT EXISTS `automobilis` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `VIN` varchar(255) NOT NULL,
   `Marke` varchar(255) NOT NULL,
   `Modelis` varchar(255) NOT NULL,
   `Kubatura` double NOT NULL,
   `Gamybos_Metai` date NOT NULL,
-  `Registracijos_numeris` varchar(255) NOT NULL,
-  `Pakaitinis_Auto` tinyint(1) NOT NULL,
+  `Registracijos_numeris` varchar(255),
+  `Pakaitinis_Auto` tinyint(1) NOT NULL DEFAULT '0',
   `Kuras` varchar(15) NOT NULL,
-  `fk_KlientasID` int(11) DEFAULT NULL,
-  `fk_ImoneImones_Kodas` varchar(255) NOT NULL,
-  `fk_KlientasIDNaudot` int(11) NOT NULL,
+  `fk_KlientasID` int(11),
+  `fk_ImoneImones_Kodas` varchar(255),
+  `fk_KlientasIDNaudot` int(11),
   PRIMARY KEY (`ID`),
-  UNIQUE KEY `fk_KlientasID` (`fk_KlientasID`),
+  KEY `fk_KlientasID` (`fk_KlientasID`),
   KEY `turi_pakaitinius` (`fk_ImoneImones_Kodas`),
   KEY `turi` (`fk_KlientasIDNaudot`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -92,8 +89,7 @@ CREATE TABLE IF NOT EXISTS `automobilis` (
 --
 
 CREATE TABLE IF NOT EXISTS `dalis` (
-  `Matmenys` varchar(255) DEFAULT NULL,
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Kilme` varchar(255) NOT NULL,
   `Svoris` double NOT NULL,
   `Aukstis` double NOT NULL,
@@ -108,6 +104,8 @@ CREATE TABLE IF NOT EXISTS `dalis` (
   KEY `uzsako` (`fk_UžsakymasId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+
 -- --------------------------------------------------------
 
 --
@@ -115,15 +113,16 @@ CREATE TABLE IF NOT EXISTS `dalis` (
 --
 
 CREATE TABLE IF NOT EXISTS `darbuotojas` (
-  `tabelio_nr` int(11) NOT NULL,
+  `tabelio_nr` int(11) NOT NULL AUTO_INCREMENT,
   `Vardas` varchar(255) NOT NULL,
   `Pavarde` varchar(255) NOT NULL,
   `Pareigos` varchar(255) NOT NULL,
   `Slaptazodis` varchar(255) NOT NULL,
-  `fk_ImoneImones_Kodas` varchar(255) NOT NULL,
+  `fk_ImoneImones_Kodas` varchar(255),
   PRIMARY KEY (`tabelio_nr`),
   KEY `dirba` (`fk_ImoneImones_Kodas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
@@ -132,15 +131,33 @@ CREATE TABLE IF NOT EXISTS `darbuotojas` (
 --
 
 CREATE TABLE IF NOT EXISTS `gedimas` (
-  `ID` int(11) NOT NULL DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Aprasymas` varchar(255) NOT NULL,
-  `Kategorija` varchar(15) DEFAULT NULL,
-  `fk_RemontasID` int(11) NOT NULL,
+  `Kategorija` varchar(15) NOT NULL,
   `fk_AutomobilisID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE KEY `fk_RemontasID` (`fk_RemontasID`),
   KEY `turi1` (`fk_AutomobilisID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+--
+-- Table structure for table `remontas`
+--
+
+CREATE TABLE IF NOT EXISTS `remontas` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Pradzia` date NOT NULL,
+  `Numatoma_pabaiga` date DEFAULT NULL,
+  `Remonto_kaina` double NOT NULL,
+  `Baigtas` tinyint(1) NOT NULL,
+  `fk_UžsakymasId` int(11) NOT NULL,
+  `fk_Gedimas` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `fk_Gedimas` (`fk_Gedimas`),
+  KEY `uzsako1` (`fk_UžsakymasId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
@@ -165,12 +182,12 @@ CREATE TABLE IF NOT EXISTS `imone` (
 --
 
 CREATE TABLE IF NOT EXISTS `klientas` (
-  `ID` int(11) NOT NULL,
-  `Slapyvardis` varchar(255) DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Slapyvardis` varchar(255) NOT NULL,
   `Vardas` varchar(255) NOT NULL,
   `Pavarde` varchar(255) NOT NULL,
   `Slaptazodis` varchar(255) NOT NULL,
-  `Tipas` varchar(10) DEFAULT NULL,
+  `Tipas` varchar(10) NOT NULL DEFAULT 'klientas',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -186,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `klientas` (
 --
 
 CREATE TABLE IF NOT EXISTS `pageidavimas` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Data` date NOT NULL,
   `Tekstas` varchar(255) NOT NULL,
   `Tipas` varchar(15) NOT NULL,
@@ -197,22 +214,6 @@ CREATE TABLE IF NOT EXISTS `pageidavimas` (
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `remontas`
---
-
-CREATE TABLE IF NOT EXISTS `remontas` (
-  `ID` int(11) NOT NULL,
-  `Pradzia` date NOT NULL,
-  `Numatoma_pabaiga` date DEFAULT NULL,
-  `Remonto_kaina` double NOT NULL,
-  `Baigtas` tinyint(1) NOT NULL,
-  `fk_UžsakymasId` int(11) NOT NULL,
-  `fk_Darbuotojas` int(11) null,
-  PRIMARY KEY (`ID`),
-  KEY `uzsako1` (`fk_UžsakymasId`),
-  KEY `tabelis` (`fk_Darbuotojas`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -221,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `remontas` (
 --
 
 CREATE TABLE IF NOT EXISTS `saskaita` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `Data` date NOT NULL,
   `Suma` double NOT NULL,
   PRIMARY KEY (`id`)
@@ -247,11 +248,12 @@ CREATE TABLE IF NOT EXISTS `schema_migrations` (
 CREATE TABLE IF NOT EXISTS `trukstama_dalis` (
   `Data` date NOT NULL,
   `Dalis` varchar(255) NOT NULL,
-  `id_Trukstama_Dalis` int(11) NOT NULL DEFAULT '0',
+  `id_Trukstama_Dalis` int(11) NOT NULL AUTO_INCREMENT,
   `fk_Darbuotojastabelio_nr` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_Trukstama_Dalis`),
-  UNIQUE KEY `fk_Darbuotojastabelio_nr` (`fk_Darbuotojastabelio_nr`)
+  KEY `fk_Darbuotojastabelio_nr` (`fk_Darbuotojastabelio_nr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
@@ -266,6 +268,7 @@ CREATE TABLE IF NOT EXISTS `trukstama_dalis_darbuotojas` (
   KEY `fk_Darbuotojastabelio_nr` (`fk_Darbuotojastabelio_nr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 -- --------------------------------------------------------
 
 --
@@ -273,59 +276,50 @@ CREATE TABLE IF NOT EXISTS `trukstama_dalis_darbuotojas` (
 --
 
 CREATE TABLE IF NOT EXISTS `užsakymas` (
-  `Id` int(11) NOT NULL,
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Data` date NOT NULL,
-  `Gražinimo_data` date NOT NULL,
   `Busena` varchar(15) NOT NULL,
   `fk_Saskaitatabelio_nr` int(11) NOT NULL,
   `fk_KlientasID` int(11) NOT NULL,
-  `fk_AutomobilisID` int(11) NOT NULL,
+  `fk_AutomobilisID` int(11),
   PRIMARY KEY (`Id`),
   UNIQUE KEY `fk_Saskaitatabelio_nr` (`fk_Saskaitatabelio_nr`),
-  UNIQUE KEY `fk_KlientasID` (`fk_KlientasID`),
-  UNIQUE KEY `fk_AutomobilisID` (`fk_AutomobilisID`)
+  KEY `fk_KlientasID` (`fk_KlientasID`),
+  KEY `fk_AutomobilisID` (`fk_AutomobilisID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Constraints for dumped tables
---
-
 --
 -- Constraints for table `atsiliepimas`
 --
 ALTER TABLE `atsiliepimas`
-  ADD CONSTRAINT `ivertina` FOREIGN KEY (`fk_DalisID`) REFERENCES `dalis` (`ID`),
-  ADD CONSTRAINT `pakaitinis_turi` FOREIGN KEY (`fk_AutomobilisID`) REFERENCES `automobilis` (`ID`),
-  ADD CONSTRAINT `raso` FOREIGN KEY (`fk_KlientasID`) REFERENCES `klientas` (`ID`);
-
---
+  ADD CONSTRAINT `ivertina` FOREIGN KEY (`fk_Darbuotojastabelio_nr`) REFERENCES `darbuotojas` (`tabelio_nr`);
+  --
 -- Constraints for table `automobilis`
 --
 ALTER TABLE `automobilis`
   ADD CONSTRAINT `naudojasi_pakaitiniu` FOREIGN KEY (`fk_KlientasID`) REFERENCES `klientas` (`ID`),
   ADD CONSTRAINT `turi` FOREIGN KEY (`fk_KlientasIDNaudot`) REFERENCES `klientas` (`ID`),
   ADD CONSTRAINT `turi_pakaitinius` FOREIGN KEY (`fk_ImoneImones_Kodas`) REFERENCES `imone` (`Imones_Kodas`);
-
---
+  --
 -- Constraints for table `dalis`
 --
 ALTER TABLE `dalis`
   ADD CONSTRAINT `uzsako` FOREIGN KEY (`fk_UžsakymasId`) REFERENCES `užsakymas` (`Id`);
-
---
+  --
 -- Constraints for table `darbuotojas`
 --
 ALTER TABLE `darbuotojas`
   ADD CONSTRAINT `dirba` FOREIGN KEY (`fk_ImoneImones_Kodas`) REFERENCES `imone` (`Imones_Kodas`);
-
---
+  --
 -- Constraints for table `gedimas`
 --
 ALTER TABLE `gedimas`
-  ADD CONSTRAINT `sutvarko` FOREIGN KEY (`fk_RemontasID`) REFERENCES `remontas` (`ID`),
   ADD CONSTRAINT `turi1` FOREIGN KEY (`fk_AutomobilisID`) REFERENCES `automobilis` (`ID`);
+  --
+-- Constraints for table `remontas`
+--
+ALTER TABLE `remontas`
+  ADD CONSTRAINT `uzsako1` FOREIGN KEY (`fk_UžsakymasId`) REFERENCES `užsakymas` (`Id`),
+  ADD CONSTRAINT `sutaiso` FOREIGN KEY (`fk_Gedimas`) REFERENCES `gedimas` (`ID`);
 
 --
 -- Constraints for table `pageidavimas`
@@ -333,12 +327,6 @@ ALTER TABLE `gedimas`
 ALTER TABLE `pageidavimas`
   ADD CONSTRAINT `pateikia` FOREIGN KEY (`fk_KlientasID`) REFERENCES `klientas` (`ID`);
 
---
--- Constraints for table `remontas`
---
-ALTER TABLE `remontas`
-  ADD CONSTRAINT `uzsako1` FOREIGN KEY (`fk_UžsakymasId`) REFERENCES `užsakymas` (`Id`);
-	ADD CONSTRAINT `darbuotojass` FOREIGN KEY (`fk_Darbuotojas`) REFERENCES `darbuotojas` (`tabelio_nr`);
 --
 -- Constraints for table `trukstama_dalis`
 --
@@ -359,4 +347,16 @@ ALTER TABLE `užsakymas`
   ADD CONSTRAINT `apmoka` FOREIGN KEY (`fk_Saskaitatabelio_nr`) REFERENCES `saskaita` (`id`),
   ADD CONSTRAINT `atlieka` FOREIGN KEY (`fk_KlientasID`) REFERENCES `klientas` (`ID`),
   ADD CONSTRAINT `užsisako` FOREIGN KEY (`fk_AutomobilisID`) REFERENCES `automobilis` (`ID`);
+
+
+-- --------------------------------------------------------
+
+--
+-- Constraints for dumped tables
+--
+
+
+
+
+
 

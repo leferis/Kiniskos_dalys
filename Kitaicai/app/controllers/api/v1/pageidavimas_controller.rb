@@ -11,7 +11,7 @@ module Api
      end
      def create 
         articles = Pageidavimas.new(article_param)
-
+        puts articles
         if articles.save
             render json: {status: 'SUCCESS', message: 'Loaded article', data:articles},status: :ok
         else
@@ -21,7 +21,7 @@ module Api
 
 
     def article_param
-        params.permit(:ID,:Data,:Tekstas,:Tipas,:fk_KlientasID)
+        params.permit(:Data,:Tekstas,:Tipas,:fk_KlientasID)
     end
     end
  end

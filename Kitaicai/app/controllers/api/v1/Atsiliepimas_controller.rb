@@ -11,7 +11,7 @@ module Api
     end
     def create 
        articles = Atsiliepimas.new(article_param)
-
+        
        if articles.save
            render json: {status: 'SUCCESS', message: 'Loaded article', data:articles},status: :ok
        else
@@ -21,7 +21,7 @@ module Api
 
 
    def article_param
-       params.permit(:ID,:Data,:Teigiamas,:Aprasymas,:fk_AutomobilisID,:fk_DalisID,:fk_RemontasID,:fk_KlientasID)
+       params.permit(:Data, :Teigiamas, :Aprasymas, :fk_Darbuotojastabelio_nr)
    end
     end
  end
