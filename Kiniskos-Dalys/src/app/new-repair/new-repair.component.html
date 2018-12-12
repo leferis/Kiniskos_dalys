@@ -27,22 +27,38 @@
           <form id="c_form-h" class="">
             <div class="form-group row"> <label for="Make" class="col-2 col-form-label">Markė</label>
               <div class="col-10">
-                <input type="text" class="form-control" id="Make" placeholder="Įveskite markę"> </div>
+                <input type="text" class="form-control" [(ngModel)]="Marke" id="Make" name="sdf" placeholder="Įveskite markę"> </div>
             </div>
             <div class="form-group row"> <label for="Model" class="col-2 col-form-label">Modelis</label>
               <div class="col-10">
-                <input type="text" class="form-control" id="Model" placeholder="Įveskite modelį"> </div>
+                <input type="text" class="form-control" [(ngModel)]="Modelis" id="Model" name="sdfdfs" placeholder="Įveskite modelį"> </div>
             </div>
-            <div class="form-group row"> <label for="Year" class="col-2 col-form-label">Pagaminimo metai</label>
+            <div class="form-group row"> <label for="vin" class="col-2 col-form-label">VIN</label>
               <div class="col-10">
-                <input type="number" class="form-control" id="Year" placeholder="Įveskite metus"> </div>
+                <input type="text" class="form-control" [(ngModel)]="VIN" id="vin" name="fsd" placeholder="Įveskite VIN"> </div>
             </div>
-            <div class="form-group row"> <label for="Problem" class="col-2 col-form-label">Gedimas</label>
+            <div class="form-group row"> <label for="data" class="col-2 col-form-label">Pagaminimo data</label>
               <div class="col-10">
-                <input type="text" class="form-control" id="Problem" placeholder="Įveskite gedimą"> </div>
+                <input type="date" class="form-control" [(ngModel)]="Made" id="data" value="2018-12-01" name="fsxcghfdhyd" placeholder="Įveskite automobilio gamybos datą."> </div>
             </div>
-            <button type="submit" class="btn btn-primary">Patvirtinti</button>
-            <button type="cancel" class="btn btn-danger">Atšaukti</button>
+            <div class="form-group row"> <label for="kuras" class="col-2 col-form-label">Kuro tipas</label>
+              <div class="col-10">
+                <input type="text" class="form-control" [(ngModel)]="Kuras" id="kuras" name="fswfdsd" placeholder="Įveskite kuro tipą."> </div>
+            </div>
+            <div class="form-group row"> <label for="kubatura" class="col-2 col-form-label">Variklio tūris, L</label>
+              <div class="col-10">
+                <input type="number" class="form-control" [(ngModel)]="Kubatura" id="kubatura" name="gfh" placeholder="Įveskite varilio tūri, pvz: 2.0"></div>
+            </div>
+            <div class="form-group row"> <label for="kategorija" class="col-2 col-form-label">Gedimo kategorija</label>
+              <div class="col-10">
+                <input type="text" class="form-control" [(ngModel)]="Kategorija" id="kategorija" name="scvxbxdfx" placeholder="Įveskite kategoriją, kuriai priskirtumėte. Jei nežinote, rašykite Kita"> </div>
+            </div>
+            <div class="form-group row"> <label for="gedimas" class="col-2 col-form-label">Gedimo aprašymas</label>
+              <div class="col-10">
+                <input type="text" class="form-control" [(ngModel)]="Gedimas" id="gedimas" name="sdxcvxfx" placeholder="Įveskite gedimą"> </div>
+            </div>
+            <button type="submit" (click) = "this.CreateNew()" class="btn btn-primary">Patvirtinti</button>
+            <button type="cancel" class="btn btn-danger" routerLink="/MyRepairs">Atšaukti</button>
           </form>
         </div>
       </div>

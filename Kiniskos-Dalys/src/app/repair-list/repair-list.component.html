@@ -18,43 +18,102 @@
   <div class="container">
       <div class="row">
           <div class="col-md-12">
+            <div class="table-responsive">
+              <table *ngIf="this.firstInRow" class="table table-striped table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th scope="colgroup" class="bg-success" colspan="9">Remontuoti paruoštas automobilis</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">Nr.</th>
+                    <th scope="col">VIN</th>
+                    <th scope="col">Markė</th>
+                    <th scope="col">Modelis</th>
+                    <th scope="col">Pagaminimo metai</th>
+                    <th scope="col">Kuro tipas</th>
+                    <th scope="col">Gedimas</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Remontas baigtas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr> <!--routerLink="/Repair/{{repair.id}}"-->
+                      <td>#1</td>
+                      <td>{{this.firstInRow.auto.VIN}}</td>
+                      <td>{{this.firstInRow.auto.Marke}}</td>
+                      <td>{{this.firstInRow.auto.Modelis}}</td>
+                      <td>{{this.firstInRow.auto.Gamybos_Metai}}</td>
+                      <td>{{this.firstInRow.auto.Kuras}}</td>
+                      <td>{{this.firstInRow.gedimas.Kategorija}}</td>
+                      <td>{{this.firstInRow.remontas.Pradzia}}</td>
+                      <td *ngIf="this.firstInRow.remontas.Baigtas == true">Taip</td>
+                      <td *ngIf="this.firstInRow.remontas.Baigtas == false">Ne</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
             <div class="btn-group">
-              <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Rikiuoti pagal </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="">Markė</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="">Modelis</a>
-              </div>
+              <button class="btn btn-primary" (click)="this.Sort('Marke')">Markė</button>  
+              <button class="btn btn-primary" (click)="this.Sort('Modelis')">Modelis</button>
+              <button class="btn btn-primary" (click)="this.Sort('Kuro tipas')">Kuro tipas</button>
+              <button class="btn btn-primary" (click)="this.Sort('Data')">Data</button>
             </div>
           </div>
         </div>
     <div class="row">
       <div class="col-md-12">
         <div class="table-responsive">
-          <table class="table table-striped table-dark table-hover">
+          <table *ngIf="this.combined" class="table table-striped table-dark table-hover">
             <thead>
               <tr>
-                <th scope="col">Id</th>
+                <th scope="col">Nr.</th>
+                <th scope="col">VIN</th>
                 <th scope="col">Markė</th>
                 <th scope="col">Modelis</th>
                 <th scope="col">Pagaminimo metai</th>
+                <th scope="col">Kuro tipas</th>
                 <th scope="col">Gedimas</th>
                 <th scope="col">Data</th>
+                <th scope="col">Remontas baigtas</th>
+                <th *ngIf="!this.isAdmin" scope="col">Naikinti</th>
               </tr>
             </thead>
-            <tbody>
-              <tr *ngFor="let userCar of userCars" routerLink="/Repair/{{repair.id}}">
-                  <td>#{{repair.id}}</td>
-                  <td>{{userCar.Marke}}</td>
-                  <td>{{repair.Model}}</td>
-                  <td>{{repair.Year}}</td>
-                  <td>{{repair.Problem}}</td>
-                  <td>{{1900+repair.Registered.getYear()}}-{{repair.Registered.getMonth()}}-{{repair.Registered.getDate()}}</td>
-              </tr>
+            <tbody *ngIf="this.isAdmin">
+                <tr *ngFor="let element of this.combined;let i = index" routerLink="/Repair/{{element.remontas.ID}}"> <!--routerLink="/Repair/{{repair.id}}"-->
+                    <td>#{{i+1}}</td>
+                    <td>{{element.auto.VIN}}</td>
+                    <td>{{element.auto.Marke}}</td>
+                    <td>{{element.auto.Modelis}}</td>
+                    <td>{{element.auto.Gamybos_Metai}}</td>
+                    <td>{{element.auto.Kuras}}</td>
+                    <td>{{element.gedimas.Kategorija}}</td>
+                    <td>{{element.remontas.Pradzia}}</td>
+                    <td *ngIf="element.remontas.Baigtas == true">Taip</td>
+                    <td *ngIf="element.remontas.Baigtas == false">Ne</td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="!this.isAdmin">
+                <tr *ngFor="let element of this.combined;let i = index"> <!--routerLink="/Repair/{{repair.id}}"-->
+                    <td>#{{i+1}}</td>
+                    <td>{{element.auto.VIN}}</td>
+                    <td>{{element.auto.Marke}}</td>
+                    <td>{{element.auto.Modelis}}</td>
+                    <td>{{element.auto.Gamybos_Metai}}</td>
+                    <td>{{element.auto.Kuras}}</td>
+                    <td>{{element.gedimas.Kategorija}}</td>
+                    <td>{{element.remontas.Pradzia}}</td>
+                    <td *ngIf="element.remontas.Baigtas == true">Taip</td>
+                    <td *ngIf="element.remontas.Baigtas == false">Ne</td>
+                    <td *ngIf="!this.isAdmin"><button type="submit" class="btn btn-danger" routerLink="/RepairDelete/{{element.remontas.ID}}">X</button></td>
+                </tr>
             </tbody>
           </table>
-          <button type="submit" class="btn btn-primary" routerLink="/NewRepair">Registruoti naują remontą</button>
-          <button type="search" class="btn btn-warning" style="float: right;">Rasti automobilį paruoštą remontui</button>
+          <button *ngIf="isAdmin == false" type="submit" class="btn btn-primary" routerLink="/NewRepair">Registruoti naują remontą</button>
+          <button *ngIf="isAdmin == true" type="search" class="btn btn-warning" (click)="FirstInRow()" style="float: right;">Rasti automobilį paruoštą remontui</button>
         </div>
       </div>
     </div>

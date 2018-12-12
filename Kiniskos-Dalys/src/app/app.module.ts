@@ -42,7 +42,8 @@ import { ShopListComponent } from './shop-list/shop-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { NewRepairComponent } from './new-repair/new-repair.component';
 import { VINService } from './Services/VIN/vin.service';
-import {DBaseService} from './Services/DB/d-base.service'
+import {DBaseService} from './Services/DB/d-base.service';
+import { RepairDeleteComponent } from './repair-delete/repair-delete.component'
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import {DBaseService} from './Services/DB/d-base.service'
     ShopListComponent,
     OrdersComponent,
     NewRepairComponent,
+    RepairDeleteComponent,
   ],
   imports: [
     BrowserModule,
