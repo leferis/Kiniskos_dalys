@@ -1,8 +1,8 @@
 import { TempCar } from './tempCar';
 
 export const TempCars: TempCar[] = [
-  { id:1,Brand: 'Audi', Model: 'A3', Year:2009, Condition:'Gera', Fuel:'Benzinas', Power:107, Seats:4},
-  { id:2,Brand: 'Audi', Model: 'A6', Year:2015, Condition:'Gera', Fuel:'Benzinas', Power:88, Seats:5},
-  { id:3,Brand: 'Subaru', Model: 'Impreza', Year:2018, Condition:'Nauja', Fuel:'Dyzelis', Power:133, Seats:5},
-  { id:4,Brand: 'BMW', Model: 'X5', Year:2012, Condition:'Gera', Fuel:'Benizas-elektra', Power:107, Seats:4}
+  { id:1, Vin:'0000',Marke: 'Audi', Modelis: 'A3', Kubatura:107, Metai:2009, RegNr:'LOL-111', PakaitAuto:1, Fuel:'Benzinas'},
+  { id:2, Vin:'0000',Marke: 'Subaru', Modelis: 'Impreza', Kubatura:107, Metai:2009, RegNr:'LKL-111', PakaitAuto:1, Fuel:'Benzinas'},
+  { id:3, Vin:'0000',Marke: 'Fiat', Modelis: '500', Kubatura:107, Metai:2009, RegNr:'LOL-122', PakaitAuto:1, Fuel:'Dyzelis'},
+  { id:4, Vin:'0000',Marke: 'BMW', Modelis: '730', Kubatura:107, Metai:2009, RegNr:'LOL-131', PakaitAuto:1, Fuel:'Benzinas'}
 ];

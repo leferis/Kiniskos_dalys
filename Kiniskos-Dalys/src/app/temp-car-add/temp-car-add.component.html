@@ -9,7 +9,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-1">Naujo pakaitinio automobilio įtraukimas</h1>
+          <h1 class="display-1">Naujo pakaitinio automobilio pridėjimas</h1>
         </div>
       </div>
     </div>
@@ -19,48 +19,27 @@
       <div class="row">
           <div class="col-md-12">
             <div class="btn-group">
-                <input class="input" placeholder="Paieška" />
-                <button  class="btn btn-primary" type="search"> Paieška </button>
-                <button  class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Rikiuoti pagal </button>
-                
-                <div class="dropdown-menu">
-                <a class="dropdown-item" href="">Markė</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="">Modelis</a>
-              </div>
+                <select (click)="getBrandMakes($event.target.value)" [(ngModel)]="selectedValue1">
+                    <option *ngFor=   "let brand of brands " value="{{brand.Name}}">{{brand.Name}}</option>
+                </select>
+                <select id="Models" [(ngModel)]="selectedValue2">
+                  <option  *ngFor="let model of models" value="{{model.Model_Name}}">{{model.Model_Name}}</option>               
+                </select>
+                <select [(ngModel)]="selectedValue3">   
+                  <option value="Dyzelinas">Dyzelinas</option> 
+                  <option value="Benzinas">Benzinas</option> 
+                  <option value="Elektra">Elektra</option> 
+                  <option value="Dujos">Dujos</option>            
+                </select> 
+                <input #input1 placeholder="Pagaminimo metai" required/>
+                <input #input2 placeholder="Variklio galia(kw)" required/>
+                <input #input3 placeholder="Registracijo numeris" required/>
             </div>
           </div>
         </div>
     <div class="row">
-      <div class="col-md-12">
-        <div class="table-responsive">
-          <table class="table table-striped table-dark table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Markė</th>
-                <th scope="col">Modelis</th>
-                <th scope="col">Pagaminimo metai</th>
-                <th scope="col">Kuras</th>
-                <th scope="col">Galia(kW)</th>
-                <th scope="col">Vietų skaičius</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let tempCar of tempCars">
-                  <td>#{{tempCar.id}}</td>
-                  <td>{{tempCar.Brand}}</td>
-                  <td>{{tempCar.Model}}</td>
-                  <td>{{tempCar.Year}}</td>
-                  <td>{{tempCar.Fuel}}</td>
-                  <td>{{tempCar.Power}}</td>
-                  <td>{{tempCar.Seats}}</td>
-              </tr>
-            </tbody>
-          </table>
-         
-          <button type="submit" class="btn btn-primary">Įtrukiti naują tarpinį autombilį</button>
-        </div>
+      <div class="col-md-12">                  
+        <br><button type="submit" class="btn btn-primary" (click)="addCar(input1.value, input2.value, input3.value)">Įtrukiti naują tarpinį autombilį</button>        
       </div>
     </div>
   </div>

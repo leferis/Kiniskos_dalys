@@ -44,18 +44,16 @@
                 <th scope="col">Pagaminimo metai</th>
                 <th scope="col">Kuras</th>
                 <th scope="col">Galia(kW)</th>
-                <th scope="col">Vietų skaičius</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let tempCar of tempCars">
-                  <td>#{{tempCar.id}}</td>
-                  <td>{{tempCar.Brand}}</td>
-                  <td>{{tempCar.Model}}</td>
-                  <td>{{tempCar.Year}}</td>
-                  <td>{{tempCar.Fuel}}</td>
-                  <td>{{tempCar.Power}}</td>
-                  <td>{{tempCar.Seats}}</td>
+              <tr *ngFor="let car of cars">
+                  <td>#{{car.id}}</td>
+                  <td>{{car.Marke}}</td>
+                  <td>{{car.Modelis}}</td>
+                  <td>{{car.Gamybos_metai}}</td>
+                  <td>{{car.Kuras}}</td>
+                  <td>{{car.Kubatura}}</td>
               </tr>
             </tbody>
           </table>

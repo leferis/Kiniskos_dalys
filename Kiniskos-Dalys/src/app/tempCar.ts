@@ -1,10 +1,11 @@
 export class TempCar{
     id:number;
-    Brand:string;
-    Model:string;
-    Year:Number;
-    Condition:string;
+    Vin:string;
+    Marke:string;
+    Modelis:string;
+    Kubatura:Number;
+    Metai:Number;
+    RegNr:string;
+    PakaitAuto:number;    
     Fuel:string;
-    Power:Number;
-    Seats:number;
 }

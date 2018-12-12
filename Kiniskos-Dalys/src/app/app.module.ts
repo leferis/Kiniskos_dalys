@@ -41,6 +41,10 @@ import { ShopListComponent } from './shop-list/shop-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { NewRepairComponent } from './new-repair/new-repair.component';
 import { FormsModule } from '@angular/forms';
+import { GetCarsService } from './Services/GetCars/get-cars.service';
+import { DbCarsService } from './Services/DbCars/db-cars.service';
+import { TempCarFixComponent } from './temp-car-fix/temp-car-fix.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +76,7 @@ import { FormsModule } from '@angular/forms';
     ShopListComponent,
     OrdersComponent,
     NewRepairComponent,
+    TempCarFixComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +87,7 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     AngularFontAwesomeModule
   ],
-  providers: [GetUserService,WorkerService,OrderService],
+  providers: [GetUserService,WorkerService,OrderService,GetCarsService, DbCarsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

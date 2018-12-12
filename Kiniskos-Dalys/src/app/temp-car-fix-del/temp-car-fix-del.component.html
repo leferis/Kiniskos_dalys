@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,22 +44,18 @@
                 <th scope="col">Modelis</th>
                 <th scope="col">Pagaminimo metai</th>
                 <th scope="col">Kuras</th>
-                <th scope="col">Galia(kW)</th>
-                <th scope="col">Vietų skaičius</th>                
-                <th scope="col">Redaguoti</th>
+                <th scope="col">Kubatūra(kW)</th>
                 <th scope="col">Trinti</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let tempCar of tempCars">
+              <tr *ngFor="let tempCar of tempCars" routerLink="/TempCarFix/{{tempCar.id}}">
                   <td>#{{tempCar.id}}</td>
-                  <td>{{tempCar.Brand}}</td>
-                  <td>{{tempCar.Model}}</td>
-                  <td>{{tempCar.Year}}</td>
+                  <td>{{tempCar.Marke}}</td>
+                  <td>{{tempCar.Modelis}}</td>
+                  <td>{{tempCar.Metai}}</td>
                   <td>{{tempCar.Fuel}}</td>
-                  <td>{{tempCar.Power}}</td>
-                  <td>{{tempCar.Seats}}</td>
-                  <td><button type="fix" class="btn btn-primary">Redaguoti</button></td>
+                  <td>{{tempCar.Kubatura}}</td>
                   <td><button type="delete" class="btn btn-primary">Trinti</button></td>
               </tr>
             </tbody>
@@ -71,3 +69,4 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous" ></script>
 </body>
+</html>
