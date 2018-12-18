@@ -22,7 +22,13 @@ export class DbCarsService {
 
   addCar(data) {    
     const headers = new HttpHeaders().set('Content-type', 'application/json');
+    console.log(this.url,data,{headers,responseType:"json"});
     return this.http.post(this.url,data,{headers,responseType:"json"});
+  }
+
+  deleteCar(id) {
+    var line = this.url + "/" + id;
+    return this.http.delete(line);
   }
   
 }

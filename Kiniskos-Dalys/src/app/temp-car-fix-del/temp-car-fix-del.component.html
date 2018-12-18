@@ -45,18 +45,20 @@
                 <th scope="col">Pagaminimo metai</th>
                 <th scope="col">Kuras</th>
                 <th scope="col">Kubatūra(kW)</th>
+                <th scope="col">Redaguoti</th>
                 <th scope="col">Trinti</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let tempCar of tempCars" routerLink="/TempCarFix/{{tempCar.id}}">
+              <tr *ngFor="let tempCar of tempCars" >
                   <td>#{{tempCar.id}}</td>
                   <td>{{tempCar.Marke}}</td>
                   <td>{{tempCar.Modelis}}</td>
                   <td>{{tempCar.Metai}}</td>
                   <td>{{tempCar.Fuel}}</td>
                   <td>{{tempCar.Kubatura}}</td>
-                  <td><button type="delete" class="btn btn-primary">Trinti</button></td>
+                  <td><button type="delete" class="btn btn-primary" routerLink="/TempCarFix/{{tempCar.id}}">Trinti</button></td>
+                  <td><button type="delete" class="btn btn-primary" (click)="deleteCar(tempCar.id)">Trinti</button></td>
               </tr>
             </tbody>
           </table>
