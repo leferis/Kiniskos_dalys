@@ -18,10 +18,16 @@ module Api
             render json: {status: 'ERROR', message: 'Loaded article', data:articles.errors},status: :unprocessable_entity
         end
      end
-
-
+     def update
+        article=Automobilis.find(params[:id])
+        if article.update_attributes(article_param)
+            render json: {status: 'SUCCESS', message: 'Loaded article', data:articles},status: :ok
+    else
+        render json: {status: 'ERROR', message: 'Loaded article', data:articles.errors},status: :unprocessable_entity
+end
+ end
     def article_param
-        params.permit(:id,:Modelis,:Marke,:Kubatura,:Gamybos_Metai,:Registracijos_numeris,:Pakaitinis_Auto,:Kuras,:Klientas,:Imones_kodas,:KlientasID1)
+        params.permit(:VIN,:id,:Modelis,:Marke,:Kubatura,:Gamybos_Metai,:Registracijos_numeris,:Pakaitinis_Auto,:Kuras,:fk_KlientasID,:Imones_kodas,:fk_KlientasIDNaudot)
     end
     end
  end

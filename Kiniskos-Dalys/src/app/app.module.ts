@@ -36,11 +36,14 @@ import { TempCarReturnComponent } from './temp-car-return/temp-car-return.compon
 import { TempCarAddComponent } from './temp-car-add/temp-car-add.component';
 import { TempCarFixDelComponent } from './temp-car-fix-del/temp-car-fix-del.component';
 import { TempCarSubSysComponent } from './temp-car-sub-sys/temp-car-sub-sys.component';
-import { ShopComponent } from './shop/shop.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { OrdersComponent } from './orders/orders.component';
 import { NewRepairComponent } from './new-repair/new-repair.component';
 import { FormsModule } from '@angular/forms';
+import { ShopServiceService } from './Services/Shop/shop-service.service';
+import { AddPartComponent } from './add-part/add-part.component';
+import { DeletePartComponent } from './delete-part/delete-part.component';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,10 +71,12 @@ import { FormsModule } from '@angular/forms';
     TempCarAddComponent,
     TempCarFixDelComponent,
     TempCarSubSysComponent,
-    ShopComponent,
     ShopListComponent,
     OrdersComponent,
     NewRepairComponent,
+    AddPartComponent,
+    DeletePartComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +87,7 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     AngularFontAwesomeModule
   ],
-  providers: [GetUserService,WorkerService,OrderService],
+  providers: [GetUserService,WorkerService,OrderService, ShopServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShopServiceService} from '../Services/Shop/shop-service.service';
+import { DeletePartComponent } from '../delete-part/delete-part.component';
 
 @Component({
   selector: 'app-shop-list',
@@ -12,80 +14,63 @@ export class ShopListComponent implements OnInit {
   public index;
   public products; 
 
-    productsData = [{
-		id: 1,
-		name: 'product1',
-		price: 100.0,
-		image: ''
-	},{
-		id: 2,
-		name: 'product2',
-		price: 14.5,
-		image: ''
-	},{
-		id: 3,
-		name: 'product3',
-		price: 100.43,
-		image: ''
-	},{
-		id: 4,
-		name: 'product4',
-		price: 99.9,
-		image: ''
-	},{
-		id: 4,
-		name: 'product5',
-		price: 99.9,
-		image: ''
-	},{
-		id: 4,
-		name: 'product6',
-		price: 99.9,
-		image: ''
-	},{
-		id: 4,
-		name: 'product7',
-		price: 99.9,
-		image: ''
-	},{
-		id: 4,
-		name: 'product8',
-		price: 99.9,
-		image: ''
-	},{
-		id: 4,
-		name: 'product9',
-		price: 99.9,
-		image: ''
-	}];
-  constructor() { }
+  public isAdmin = true;
+
+  constructor(private _dbService:ShopServiceService, private dlt:DeletePartComponent) { }
   
 
   ngOnInit() {
-    this.products = this.getRows();
-    //console.log(this.rowCnt);
+    this.getProducts();
+    console.log(this.isAdmin);    
   }
 
-  getRows = function() {
+  change()
+  {
+    this.isAdmin = this._dbService.change();
+    console.log("Pasikeitė į: " + this.isAdmin);  
+  }
+
+  getProducts()
+  {
+    var prod;
+    this._dbService.getDalys().subscribe(Response => {
+      for(var key in Response)
+      {
+        if(Response[key] instanceof Object)
+        {
+          prod = Response[key];
+        }
+      }
+      this.products = this.getRows(prod);
+
+    }, err => console.error(err), () => console.log());
+  }
+
+  getRows(products) {
     this.index = 0;
-    this.rowCnt = Math.ceil(this.productsData.length/3);
+    this.rowCnt = Math.ceil(products.length/4);
     var rows = new Array(this.rowCnt);
     var next = 0;
     for(var i = 0; i < this.rowCnt-1; i++)
     {
-      rows[i] = new Array(3);
-      for(var j = 0; j < 3; j++)
+      rows[i] = new Array(4);
+      for(var j = 0; j < 4; j++)
       {
-        rows[i][j] = this.productsData[next++];
+        rows[i][j] = products[next++];
       }
     }
-    var left = this.productsData.length-next;
+    var left = products.length-next;
     rows[this.rowCnt-1] = new Array(left);
     for(var i = 0; i < left; i++)
     {
-      rows[this.rowCnt-1][i] = this.productsData[next++];
+      rows[this.rowCnt-1][i] = products[next++];
     }
     return rows;  
+}
+
+DeletePart()
+{
+  this.dlt.deletePart();
 }
 
   addItemToCart = function(product){

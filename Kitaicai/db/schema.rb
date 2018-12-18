@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "dalis", primary_key: "ID", id: :integer, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "Matmenys"
     t.string "Kilme", null: false
     t.float "Svoris", limit: 53, null: false
     t.float "Aukstis", limit: 53, null: false

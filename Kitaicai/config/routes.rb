@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :trukstama_dalis
       resources :atsiliepimas
       resources :dalis
+      resources :gedimas
+      resources :uzsakymas
     end
   end
 end

@@ -21,7 +21,7 @@ module Api
 
 
    def article_param
-       params.permit(:ID,:Data,:Teigiamas,:Aprasymas,:fk_AutomobilisID,:fk_DalisID,:fk_RemontasID,:fk_KlientasID)
+       params.permit(:Teigiamas, :Aprasymas, :fk_AutomobilisID, :fk_DalisID, :fk_RemontasID, :fk_KlientasID)
    end
     end
  end

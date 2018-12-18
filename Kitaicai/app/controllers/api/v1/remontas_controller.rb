@@ -18,10 +18,21 @@ module Api
             render json: {status: 'ERROR', message: 'Loaded article', data:articles.errors},status: :unprocessable_entity
         end
      end
-
-
+	 def destroy
+		articles = Remontas.find(params[:id])
+		articles.destroy
+		render json: {status: 'SUCCESS', message: 'Deleted article', data:articles},status: :ok
+	end
+     def update
+        article=Remontas.find(params[:id])
+        if article.update_attributes(article_param)
+            render json: {status: 'SUCCESS', message: 'Loaded article', data:articles},status: :ok
+    else
+        render json: {status: 'ERROR', message: 'Loaded article', data:articles.errors},status: :unprocessable_entity
+end
+ end
     def article_param
-        params.permit(:ID,:Pradzia,:Numatoma_pabaiga,:Remonto_kaina,:Baigtas,:fk_UzsakymasId)
+        params.permit(:Pradzia,:Numatoma_pabaiga,:Remonto_kaina,:Baigtas,:fk_UžsakymasId,:fk_Gedimas)
     end
     end
  end
