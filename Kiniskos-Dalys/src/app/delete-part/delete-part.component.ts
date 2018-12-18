@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class DeletePartComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute, private location:Location, private _DBaseService:ShopServiceService, private router:Router) { }
+  constructor(private route:ActivatedRoute, private _DBaseService:ShopServiceService, private router:Router) { }
 
 
   ngOnInit() {

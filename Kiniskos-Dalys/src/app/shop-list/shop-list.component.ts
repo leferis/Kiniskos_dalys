@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopServiceService} from '../Services/Shop/shop-service.service';
 import { DeletePartComponent } from '../delete-part/delete-part.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-shop-list',
@@ -16,7 +17,7 @@ export class ShopListComponent implements OnInit {
 
   public isAdmin = true;
 
-  constructor(private _dbService:ShopServiceService, private dlt:DeletePartComponent) { }
+  constructor(private _dbService:ShopServiceService,private router:Router,private route:ActivatedRoute) { }
   
 
   ngOnInit() {
@@ -70,7 +71,11 @@ export class ShopListComponent implements OnInit {
 
 DeletePart()
 {
-  this.dlt.deletePart();
+  const ID = +this.route.snapshot.paramMap.get('ID');
+      
+  this._dbService.deleteDalis(ID).subscribe(Response => {}, err => console.error(err), () => console.log("Ištrinta prekė " + ID));
+  this.router.navigate(['/Shop']);
+
 }
 
   addItemToCart = function(product){
