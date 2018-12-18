@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
+</head>
+
+<body class="bg-info">
+  
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container"> <a class="navbar-brand" href="#">
+            <i class="fa d-inline fa-lg fa-stop-circle"></i>
+            <b> Kiniškos dalys</b>
+          </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar10">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"> <a class="nav-link" (click)="this.change()">Keisti prieigą</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['../Orders']">Mano užsakymai</a> </li>
+            </ul> <a class="btn navbar-btn ml-md-2 btn-light text-dark" [routerLink]="['../Cart']">Pirkinių krepšelis</a> 
+            <a *ngIf="this.isAdmin" class="btn navbar-btn ml-md-2 btn-light text-dark" [routerLink]="['../AddPart']">Pridėti prekę</a>
+          </div>
+        </div>
+      </nav>
+  <div class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="display-3">Prekės pridėjimas</h1>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <form id="c_form-h" class="">
+            <div class="form-group row"> <label for="Make" class="col-2 col-form-label">Pavadinimas</label>
+              <div class="col-10">
+                <input type="text" class="form-control" [(ngModel)]="pavadinimas" id="Make" name="1" placeholder= "Iveskite pavadinimą"> </div>
+            </div>
+            <div class="form-group row"> <label for="Model" class="col-2 col-form-label">Kilmės šalis</label>
+              <div class="col-10">
+                <input type="text" class="form-control" [(ngModel)]="kilme" id="Model" name="2" placeholder="Įveskite kilmės šalį"> </div>
+            </div>
+            <div class="form-group row"> <label for="Year" class="col-2 col-form-label">Svoris</label>
+              <div class="col-10">
+                <input type="number" class="form-control"[(ngModel)]="svoris" id="Year" name="3" placeholder="Įveskite svorį"> </div>
+            </div>
+            <div class="form-group row"> <label for="Year" class="col-2 col-form-label">Ilgis</label>
+              <div class="col-10">
+                <input type="number" class="form-control" [(ngModel)]="ilgis" id="Year" name="4" placeholder="Įveskite ilgį"> </div>
+            </div>
+            <div class="form-group row"> <label for="Year" class="col-2 col-form-label">Plotis</label>
+              <div class="col-10">
+                <input type="number" class="form-control" [(ngModel)]="plotis" id="Year" name="10" placeholder="Įveskite plotį"> </div>
+            </div>
+            <div class="form-group row"> <label for="Year" class="col-2 col-form-label">Aukštis</label>
+              <div class="col-10">
+                <input type="number" class="form-control" [(ngModel)]="aukstis" id="Year" name="5" placeholder="Įveskite aukštį"> </div>
+            </div>
+            <div class="form-group row"> <label for="Model" class="col-2 col-form-label">Kategorija</label>
+              <div class="col-10">
+                <input type="text" class="form-control" [(ngModel)]="kategorija" id="Model" name="6" placeholder="Įveskite prekės kategoriją"> </div>
+            </div>
+            <div class="form-group row"> <label for="Year" class="col-2 col-form-label">Pirkimo kaina</label>
+              <div class="col-10">
+                <input type="number" class="form-control" [(ngModel)]="pirkimo_kaina" id="Year" name="7" placeholder="Įveskite pirkimo kainą"> </div>
+            </div>
+            <div class="form-group row"> <label for="Year" class="col-2 col-form-label">Pardavimo kaina</label>
+              <div class="col-10">
+                <input type="number" class="form-control" [(ngModel)]="pardavimo_kaina" id="Year" name="8" placeholder="Įveskite pardavimo kainą"> </div>
+            </div>
+            <div class="form-group row"> <label for="Model" class="col-2 col-form-label">Paveikslėlio URL</label>
+              <div class="col-10">
+                <input type="text" class="form-control" [(ngModel)]="paveikslelis" id="Model" value="default" name="9" placeholder="Įveskite paveikslėlio URL"> </div>
+            </div>
+            <button type="submit" (click)="this.AddDalis()" class="btn btn-primary">Pridėti</button>
+            <button type="cancel" class="btn btn-danger" [routerLink]="['../Shop']">Atšaukti</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>
